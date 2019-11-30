@@ -23,6 +23,7 @@ namespace UniversalTimerTool
         public MainWindow()
         {
             InitializeComponent();
+            MessageBox.Show("Hey!");
         }
     }
 }

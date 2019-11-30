@@ -8,7 +8,7 @@
         Title="UUT - Universal Timer Tool" Height="450" Width="800">
     
     <TabControl Name="tabControlMain">
-        <TabItem Name="Home"
+        <TabItem Name="tabHome"
                  Header="Home"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
@@ -104,6 +104,60 @@
                     </Grid>
                 </GroupBox>
             </Grid>
+        </TabItem>
+
+        <TabItem Name="tabView"
+                 Header="View"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
+        </TabItem>
+
+        <TabItem Name="tabProjects"
+                 Header="Project"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
+        </TabItem>
+
+        <TabItem Name="tabSettings"
+                 Header="Settings"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="7*" />
+                </Grid.RowDefinitions>
+
+                <Label Name="_labelLanguage" Content="Language:"/>
+                <ComboBox Name="comboBoxLanguage" Grid.Column="1" Grid.Row="0">
+                    <ComboBoxItem Content="English" />
+                    <ComboBoxItem Content="Čeština" />
+                </ComboBox>
+
+                <Label Name="_labelCurrency" Content="Currency" Grid.Column="0" Grid.Row="1"/>
+                <ComboBox Name="comboBoxCurrency" Grid.Column="1" Grid.Row="1">
+                    <ComboBoxItem Content="CZE"/>
+                    <ComboBoxItem Content="EUR"/>
+                </ComboBox>
+
+                <Label Name="_labelAutosaveTime" Content="Autosave time:" Grid.Row="2" Grid.Column="0"/>
+                <!-- Time picker out of DateTimePicker?-->
+
+                <Button Name="buttonSave" Content="Save" Grid.Column="1" Grid.Row="3"/>
+            </Grid>
+        </TabItem>
+
+        <TabItem Name="tabAbout"
+                 Header="About"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Stretch">
         </TabItem>
     </TabControl>
 </Window>
