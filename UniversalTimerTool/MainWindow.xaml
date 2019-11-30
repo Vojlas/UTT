@@ -86,19 +86,21 @@
                         </Grid.RowDefinitions>
 
                         <Label Name="_labelPricePerHour" Content="Price per hour: " Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></Label>
-                        <TextBox Text="0,00Kč" IsReadOnly="False" Grid.Column="1"></TextBox>
+                        <TextBox Text="0,00 Kč" IsReadOnly="False" Grid.Column="1"></TextBox>
 
-                        <Label Name="labelPriceWork" Content="00:00:00" Grid.Column="1" Grid.Row="1"></Label>
-                        <Label Name="_labelPriceWork" Content="Total Time:" Grid.Column="0" Grid.Row="1"></Label>
+                        <Label Name="labelPriceWork" Content="0,00 Kč" Grid.Column="1" Grid.Row="1"></Label>
+                        <Label Name="_labelPriceWork" Content="Price Work:" Grid.Column="0" Grid.Row="1"></Label>
 
-                        <Label Name="labelPriceTrain" Content="00:00:00" Grid.Column="1" Grid.Row="3"></Label>
-                        <Label Name="_labelPriceTrain" Content="Work Time:" Grid.Column="0" Grid.Row="3"></Label>
+                        <Label Name="labelPriceTrain" Content="0,00 Kč" Grid.Column="1" Grid.Row="2"></Label>
+                        <Label Name="_labelPriceTrain" Content="Price Train:" Grid.Column="0" Grid.Row="2"></Label>
 
-                        <Label Name="_labelDevider1" Content="================" Grid.Column="1" Grid.Row="2"></Label>
-                        
-                        <Label Name="_labelPriceTotalMinusTrain" Content="00:00:00" Grid.Column="1" Grid.Row="4"></Label>
-                        
-                        <Label Name="_labelPriceTotal" Content="Train Time:" Grid.Column="0" Grid.Row="4"></Label>
+                        <Label Name="_labelDevider1" Content="================" Grid.Column="1" Grid.Row="3"></Label>
+
+                        <Label Name="labelPriceTotalMinusTrain" Content="0,00 Kč" Grid.Column="1" Grid.Row="4" />
+                        <Label Name="_labelPriceTotalMinusTrain" Content="Price Only Work" Grid.Column="0" Grid.Row="5"></Label>
+
+                        <Label Name="labelPriceTotal" Content="0,00 Kč" Grid.Column="1" Grid.Row="5" />
+                        <Label Name="_labelPriceTotal" Content="Price total Time:" Grid.Column="0" Grid.Row="4"></Label>
                     </Grid>
                 </GroupBox>
             </Grid>
