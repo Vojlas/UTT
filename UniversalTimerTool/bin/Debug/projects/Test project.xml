@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<Project>
+  <ProjectMain>
+    <ProjectName>Test project</ProjectName>
+    <Created>12.12.2019 16:14:56</Created>
+    <FileName>Test project.xml</FileName>
+    <Description>Obnovení projektu dne: 01.12.2019</Description>
+  </ProjectMain>
+  <Update0>
+    <WorkTime>63711542</WorkTime>
+    <TrainTime>637115331</TrainTime>
+    <LastPricePerHour>255</LastPricePerHour>
+    <UpdateName>init</UpdateName>
+  </Update0>
+  <Update1>
+    <WorkTime>62151551</WorkTime>
+    <TrainTime>256</TrainTime>
+    <LastPricePerHour>250</LastPricePerHour>
+    <UpdateName>init + changes</UpdateName>
+  </Update1>
+</Project>

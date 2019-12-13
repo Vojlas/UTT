@@ -18,7 +18,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="4*"/>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
@@ -28,14 +28,19 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1.4*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Label Name="labelProjectName" Content="Inset Project Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"></Label>
-                        <Label Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1"></Label>
+                        <Label Name="labelProjectName" Content="Inset Project Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="20" FontWeight="Bold"></Label>
+
+                        <Button Name="buttonBackProject"  Grid.Column="3" Content="Back" Margin="5 10 5 10" Click="buttonBackProject_Click"/>
+                        <Button Name="buttonNextProject" Grid.Column="4" Content="Next" Margin="5 10 5 10" Click="buttonNextProject_Click"/>
+
+                        <Label Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></Label>
                         <Label Name="_labelProjectName" Content="Total project time:" Grid.Column="0" Grid.Row="1"></Label>
                     </Grid>
                 </GroupBox>
@@ -45,20 +50,20 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2.5*" />
                             <ColumnDefinition Width="3*" />
-                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="0.4*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
 
-                        <Label Name="labelUpdateName" Content="update n. 2.0.5" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></Label>
-                        
-                        <Label Name="labelTotalTime" Content="00:00:00" Grid.Column="1" Grid.Row="1"></Label>
-                        <Label Name="_labelTotalTime" Content="Total Time:" Grid.Column="0" Grid.Row="1"></Label>
+                        <Label Name="labelUpdateName" Content="update n. 2.0.5" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="15" FontWeight="Bold"/>
+
+                        <Label Name="labelTotalUpdateTime" Content="00:00:00" Grid.Column="1" Grid.Row="1"></Label>
+                        <Label Name="_labelTotalUpdateTime" Content="Total Time:" Grid.Column="0" Grid.Row="1"></Label>
 
                         <Label Name="_labelDevider" Content="================" Grid.Column="1" Grid.Row="2"></Label>
 
@@ -85,24 +90,43 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Label Name="_labelPricePerHour" Content="Price per hour: " Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"></Label>
-                        <TextBox Text="0,00 Kč" IsReadOnly="False" Grid.Column="1"></TextBox>
+                        <Label Name="_labelPricePerHour" Content="Price per hour: " Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
+                        <TextBox Text="0,00 Kč" IsReadOnly="False" Grid.Column="1" />
 
-                        <Label Name="labelPriceWork" Content="0,00 Kč" Grid.Column="1" Grid.Row="1"></Label>
-                        <Label Name="_labelPriceWork" Content="Price Work:" Grid.Column="0" Grid.Row="1"></Label>
+                        <Label Name="labelPriceWork" Content="0,00 Kč" Grid.Column="1" Grid.Row="1" Foreground="Green"/>
+                        <Label Name="_labelPriceWork" Content="Price Work:" Grid.Column="0" Grid.Row="1" />
 
-                        <Label Name="labelPriceTrain" Content="0,00 Kč" Grid.Column="1" Grid.Row="2"></Label>
-                        <Label Name="_labelPriceTrain" Content="Price Train:" Grid.Column="0" Grid.Row="2"></Label>
+                        <Label Name="labelPriceTrain" Content="0,00 Kč" Grid.Column="1" Grid.Row="2" Foreground="Red"/>
+                        <Label Name="_labelPriceTrain" Content="Price Train:" Grid.Column="0" Grid.Row="2" />
 
-                        <Label Name="_labelDevider1" Content="================" Grid.Column="1" Grid.Row="3"></Label>
+                        <Label Name="_labelDevider1" Content="================" Grid.Column="1" Grid.Row="3" />
 
                         <Label Name="labelPriceTotalMinusTrain" Content="0,00 Kč" Grid.Column="1" Grid.Row="4" />
-                        <Label Name="_labelPriceTotalMinusTrain" Content="Price Only Work" Grid.Column="0" Grid.Row="5"></Label>
+                        <Label Name="_labelPriceTotalMinusTrain" Content="Price Only Work" Grid.Column="0" Grid.Row="5" />
 
                         <Label Name="labelPriceTotal" Content="0,00 Kč" Grid.Column="1" Grid.Row="5" />
-                        <Label Name="_labelPriceTotal" Content="Price total Time:" Grid.Column="0" Grid.Row="4"></Label>
+                        <Label Name="_labelPriceTotal" Content="Price total Time:" Grid.Column="0" Grid.Row="4" />
                     </Grid>
                 </GroupBox>
+
+                <Grid Grid.Row="3" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="buttonStartWork" Content="Work" Grid.Column="0" Margin="8" Click="buttonStartWork_Click" Background="Green"/>
+                    <Button Name="buttonStartTrain" Content="Train" Grid.Column="1" Margin="8" Click="buttonStartTrain_Click" Background="Yellow"/>
+
+                    <Button Name="buttonSaveProject" Content="Save" Grid.Column="3" Margin="8" Click="buttonSaveProject_Click"/>
+                    
+                    <Button Name="ButtonStop" Content="Stop" Grid.Column="6" Margin="8" Foreground="Black" Click="ButtonStop_Click" Background="Red"/>
+                </Grid>
+                
             </Grid>
         </TabItem>
 
@@ -116,6 +140,38 @@
                  Header="Project"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Name="buttonCreateNewProject" Content="Create new Project" Margin="100" Click="buttonCreateNewProject_Click" Grid.Column="0"/>
+                <Button Visibility="Hidden" Name="buttonLoadNewProject" Content="Load Project" Margin="100" Click="buttonLoadNewProject_Click" Grid.Column="1"/>
+
+                <GroupBox Name="groupBoxCreateNewProject" Grid.Column="1" Visibility="Visible">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="4*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Content="Project Name: " Grid.Column="0" Grid.Row="0"/>
+                        <TextBox Name="textBoxProjectName" Grid.Row="0" Grid.Column="1" Margin="10 2 10 2"/>
+
+                        <Button Name="buttonCreateProject" Click="buttonCreateProject_Click" Content="Create" Grid.Column="1" Grid.Row="5" Margin="25 5 25 5"/>
+                        <Button Name="buttonClose" Click="buttonClose_Click" Content="Close" Grid.Column="0" Grid.Row="5" Margin="25 5 25 5"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            
         </TabItem>
 
         <TabItem Name="tabSettings"
@@ -131,12 +187,14 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.7*" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="7*" />
+                    <RowDefinition Height="6*" />
                 </Grid.RowDefinitions>
 
                 <Label Name="_labelLanguage" Content="Language:"/>
-                <ComboBox Name="comboBoxLanguage" Grid.Column="1" Grid.Row="0">
+                <ComboBox Name="comboBoxLanguage" Grid.Column="1" Grid.Row="0" >
                     <ComboBoxItem Content="English" />
                     <ComboBoxItem Content="Čeština" />
                 </ComboBox>
@@ -150,7 +208,11 @@
                 <Label Name="_labelAutosaveTime" Content="Autosave time:" Grid.Row="2" Grid.Column="0"/>
                 <!-- Time picker out of DateTimePicker?-->
 
-                <Button Name="buttonSave" Content="Save" Grid.Column="1" Grid.Row="3"/>
+                <Label Name="_labelProjectFolderPath" Content="Project folder:" Grid.Row="3" Grid.Column="0"/>
+                <Label Name="_labelCurrentProjectFolderPath" Content="C:\Projects\" Grid.Row="3" Grid.Column="1"/>
+                <Button Name="buttonChangeProjectFolder" Content="Change Project Folder" Grid.Column="1" Grid.Row="4"/>
+
+                <Button Name="buttonSaveConfig" Content="Save" Grid.Column="1" Grid.Row="5"/>
             </Grid>
         </TabItem>
 
