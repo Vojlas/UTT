@@ -10,3 +10,17 @@ D:\00_Personal\C#_Programs\UniversalTimerTool\UniversalTimerTool\obj\Debug\MainW
 D:\00_Personal\C#_Programs\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.g.resources
 D:\00_Personal\C#_Programs\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.exe
 D:\00_Personal\C#_Programs\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.csprojAssemblyReference.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\MainWindow.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\App.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool_MarkupCompile.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool_MarkupCompile.lref
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.exe
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\bin\Debug\UniversalTimerTool.exe.config
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\bin\Debug\UniversalTimerTool.exe
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\bin\Debug\UniversalTimerTool.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\MainWindow.baml
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.g.resources
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.Properties.Resources.resources
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.csproj.GenerateResource.cache

@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<Project>
+  <ProjectMain>
+    <ProjectName>Potato</ProjectName>
+    <Created>29.01.2020 0:00:00</Created>
+    <FileName>Potato.xml</FileName>
+    <Description>Potota Lorem Ipsum</Description>
+  </ProjectMain>
+  <Update0>
+    <WorkTime>0</WorkTime>
+    <TrainTime>0</TrainTime>
+    <LastPricePerHour>0</LastPricePerHour>
+    <UpdateName>Init + learning</UpdateName>
+  </Update0>
+</Project>

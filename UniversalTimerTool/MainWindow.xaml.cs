@@ -28,7 +28,7 @@ namespace UniversalTimerTool
         private bool work { get; set; }
         private System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
         private System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
-        
+
         List<Project> project = new List<Project>();
         public int ProjectNumber { get; private set; }
         public int UpdateNumber { get; private set; }
@@ -36,23 +36,7 @@ namespace UniversalTimerTool
         public MainWindow()
         {
             InitializeComponent();
-            this.work = false; ButtonStop.IsEnabled = false;
-            this.ProjectNumber = 0;
-            this.UpdateNumber = 0;
-
-            //TimerProject - Initialize
-            //System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimerProject.Tick += new EventHandler(dispatcherTimerProject_Tick);
-            dispatcherTimerProject.Interval = new TimeSpan(0, 0, 1);
-
-            //TimerAutosava - Initialize
-            //System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimerAutosave.Tick += new EventHandler(dispatcherTimerAutosave_Tick);
-            dispatcherTimerAutosave.Interval = new TimeSpan(0, 0, 10);
-            dispatcherTimerAutosave.Start();
-            
-
-            //TODO: Language switch || Multilanguage support 
+            SetupComponents();
         }
 
         private void dispatcherTimerProject_Tick(object sender, EventArgs e)
@@ -137,41 +121,45 @@ namespace UniversalTimerTool
         {
             groupBoxCreateNewProject.Visibility = Visibility.Visible;
             buttonLoadNewProject.Visibility = Visibility.Hidden;
+        }
 
-            List<Update> updates = new List<Update>();
-            Update update1 = new Update(new DateTime(63711542), new DateTime(637115331), 255, "init");
-            Update update2 = new Update(new DateTime(62151551), new DateTime(256), 250, "init + changes");
-            updates.Add(update1);
-            updates.Add(update2);
-
-            Project project = new Project("Test project", DateTime.UtcNow, updates, "Obnovení projektu dne: 01.12.2019");
-
-            FilesController.FilesController filesController = new FilesController.FilesController();
-            filesController.WriteProjecToProjectFolder(project);
-
-            /*DataController.DataController dataController = new DataController.DataController();
-
-            Project projectEnd;
-            projectEnd = dataController.projectFromDataset(filesController.Loadprojects().ElementAt(0));*/
-
-            try
+        private void buttonCreateProject_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: Verification and saving project
+            if (textBoxProjectName.Text != String.Empty &&
+                datePickerCreated.SelectedDate.Value.Ticks != 0 &&
+                textBoxUpdateName.Text != String.Empty)
             {
-                this.project.Add(project);
-                Console.WriteLine("Null project created! {0}", project.ProjektName);
+
+                List<Update> updates = new List<Update>();
+                Update update = new Update(new DateTime(0), new DateTime(0), 0, textBoxUpdateName.Text);
+                updates.Add(update);
+
+                Project project = new Project(textBoxProjectName.Text, new DateTime(datePickerCreated.SelectedDate.Value.Ticks), updates, textBoxDescription.Text);
+
+                FilesController.FilesController filesController = new FilesController.FilesController();
+                filesController.WriteProjecToProjectFolder(project); //TODO: Add logging system!
+
+                try{ this.project.Add(project); } //TODO: Logging data
+                catch (Exception)
+                {
+                    this.project.Insert(0, project); //TODO: Logging data
+                }
+
+                HomeView homeView = new HomeView(this);
+                homeView.ReRenderHomePage(this.project.ElementAt(ProjectNumber), 0);
+                MessageBox.Show("Project created!");
             }
-            catch (Exception)
+            else
             {
-                this.project.Insert(0, project);
-                Console.WriteLine("Project created {0}", project.ProjektName);
+                MessageBox.Show("You must entry the project name, update name and date of creation!");
             }
-            
-            HomeView homeView = new HomeView(this);
-            homeView.ReRenderHomePage(this.project.ElementAt(ProjectNumber), 0);
         }
 
         private void buttonSaveProject_Click(object sender, RoutedEventArgs e)
         {
-
+            //TODO: ButtonSAveProject_Click
+            throw new NotImplementedException();
         }
 
         private void buttonBackProject_Click(object sender, RoutedEventArgs e)
@@ -188,7 +176,7 @@ namespace UniversalTimerTool
 
         private void buttonNextProject_Click(object sender, RoutedEventArgs e)
         {
-            if (this.ProjectNumber < this.project.Count -1 && this.project != null)
+            if (this.ProjectNumber < this.project.Count - 1 && this.project != null)
             {
                 this.ProjectNumber++;
             }
@@ -198,15 +186,40 @@ namespace UniversalTimerTool
             Console.WriteLine(this.ProjectNumber);
         }
 
-        private void buttonCreateProject_Click(object sender, RoutedEventArgs e)
-        {
-            //TODO: Verification and saving project
-        }
-
         private void buttonClose_Click(object sender, RoutedEventArgs e)
         {
             groupBoxCreateNewProject.Visibility = Visibility.Hidden;
             buttonLoadNewProject.Visibility = Visibility.Visible;
+        }
+
+        private void checkboxToday_Changed(object sender, RoutedEventArgs e)
+        {
+            if ((sender as CheckBox).IsChecked.ToString() == "True")
+            {
+                datePickerCreated.SelectedDate = DateTime.Today;
+                datePickerCreated.IsEnabled = false;
+            }
+            else
+            {
+                datePickerCreated.SelectedDate = null;
+                datePickerCreated.IsEnabled = true;
+            }
+            
+        }
+
+        private void checkBoxDefaultUpdate_Changed(object sender, RoutedEventArgs e)
+        {
+            if ((sender as CheckBox).IsChecked.ToString() == "True")
+            {
+                datePickerCreated.SelectedDate = DateTime.Today;
+                datePickerCreated.IsEnabled = false;
+            }
+            else
+            {
+                datePickerCreated.SelectedDate = null;
+                datePickerCreated.IsEnabled = true;
+            }
+
         }
     }
 }

@@ -1,0 +1,1 @@
+﻿BUG: TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger

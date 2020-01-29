@@ -46,7 +46,7 @@ namespace UniversalTimerTool.FilesController
             return dataSet;
         }
 
-        public void WriteProjecToProjectFolder(Project project)
+        public int WriteProjecToProjectFolder(Project project)
         {
             DataSet ds = new DataSet { DataSetName = "Project" };
             DataTable dt = new DataTable { TableName = "ProjectMain" };
@@ -55,10 +55,14 @@ namespace UniversalTimerTool.FilesController
             DataColumn dc3 = new DataColumn("FileName"); dt.Columns.Add(dc3);
             DataColumn dc4 = new DataColumn("Description"); dt.Columns.Add(dc4);
             dt.Rows.Add(project.ProjektName, project.Created, project.FileName, project.Description);
-
-            ds.Tables.Add(dt);
-            addTables(ds, project.Updates);
-            ds.WriteXml(path + project.FileName);
+            try
+            {
+                ds.Tables.Add(dt);
+                addTables(ds, project.Updates);
+                ds.WriteXml(path + project.FileName);
+            }
+            catch { return 1; }
+            return 0;
         }
 
         /// <summary>
