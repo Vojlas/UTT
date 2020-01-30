@@ -48,7 +48,6 @@ namespace UniversalTimerTool
                 default:
                     break;
             }
-            _labelProjectName.Content = "CEskA";
             //TODO: Language switch || Multilanguage support 
         }
     }

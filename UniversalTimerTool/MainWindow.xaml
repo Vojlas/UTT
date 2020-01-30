@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversalTimerTool"
         mc:Ignorable="d"
-        Title="UUT - Universal Timer Tool" Height="450" Width="800">
-    
+        Title="UUT - Universal Timer Tool" Height="336" Width="616.4">
+
     <TabControl x:Name="tabControlMain">
         <TabItem x:Name="tabHome"
                  Header="Home"
@@ -18,8 +18,8 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="4*"/>
-                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="9*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
                 <GroupBox x:Name="GroupBoxProject" Header="Project" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
@@ -32,19 +32,19 @@
                             <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="1.4*" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="1.3*" />
+                            <RowDefinition Height="1.2*" />
                         </Grid.RowDefinitions>
-                        <Label x:Name="labelProjectName" Content="Inset Project Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="20" FontWeight="Bold"></Label>
+                        <Label x:Name="labelProjectName" Content="Inset Project Name" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="18" FontWeight="Bold"></Label>
 
-                        <Button x:Name="buttonBackProject"  Grid.Column="3" Content="Back" Margin="5 10 5 10" Click="buttonBackProject_Click"/>
-                        <Button x:Name="buttonNextProject" Grid.Column="4" Content="Next" Margin="5 10 5 10" Click="buttonNextProject_Click"/>
+                        <Button x:Name="buttonBackProject"  Grid.Column="3" Content="Back" Margin="5" Click="buttonBackProject_Click"/>
+                        <Button x:Name="buttonNextProject" Grid.Column="4" Content="Next" Margin="5" Click="buttonNextProject_Click"/>
 
                         <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></Label>
                         <Label x:Name="_labelProjectName" Content="Total project time:" Grid.Column="0" Grid.Row="1"></Label>
                     </Grid>
                 </GroupBox>
-                
+
                 <GroupBox x:Name="GroupBoxUpdate" Header="Update" Grid.Column="0" Grid.Row="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -53,42 +53,76 @@
                             <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="1*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
 
                         <Label x:Name="labelUpdateName" Content="update n. 2.0.5" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="15" FontWeight="Bold"/>
+                        <Button x:Name="buttonShowUpdate" Grid.Column="3" Grid.Row="0" Margin="5" Content="Settings" Click="buttonShowUpdate_Click"/>
 
                         <Label x:Name="labelTotalUpdateTime" Content="00:00:00" Grid.Column="1" Grid.Row="1"></Label>
                         <Label x:Name="_labelTotalUpdateTime" Content="Total Time:" Grid.Column="0" Grid.Row="1"></Label>
 
-                        <Label x:Name="_labelDevider" Content="================" Grid.Column="1" Grid.Row="2"></Label>
+                        <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0 0 0 1"/>
 
-                        <Label x:Name="labelWorkTime" Content="00:00:00" Grid.Column="1" Grid.Row="3"></Label>
-                        <Label x:Name="_labelWorkTime" Content="Work Time:" Grid.Column="0" Grid.Row="3"></Label>
+                        <Label x:Name="labelWorkTime" Content="00:00:00" Grid.Column="1" Grid.Row="2"></Label>
+                        <Label x:Name="_labelWorkTime" Content="Work Time:" Grid.Column="0" Grid.Row="2"></Label>
 
-                        <Label x:Name="labelTrainTime" Content="00:00:00" Grid.Column="1" Grid.Row="4"></Label>
-                        <Label x:Name="_labelTrainTime" Content="Train Time:" Grid.Column="0" Grid.Row="4"></Label>
-
-                        <Border Grid.Column="1" Grid.RowSpan="6" BorderBrush="Black" BorderThickness="0 0 1 0"/>
-
-                        <Button x:Name="buttonPreviousUpdate" Grid.Column="3" Grid.Row="1" Margin="5" Content="Previous" Click="buttonPreviousUpdate_Click"/>
-                        <Button x:Name="buttonNextUpdate" Grid.Column="3" Grid.Row="2" Margin="5" Content="Next" Click="buttonNextUpdate_Click"/>
-                        <Button x:Name="buttonNewUpdate" Grid.Column="3" Grid.Row="3" Margin="5" Content="New update" Click="buttonNewUpdate_Click"/>
-                    </Grid>    
-                </GroupBox>
-
-                <GroupBox x:Name="GroupBoxNewUpdate" Header="New Update" Grid.Column="1" Grid.Row="1" Visibility="Visible"> <!-- TEMP VISIBLE-->
-                    <Grid>
-                        
+                        <Label x:Name="labelTrainTime" Content="00:00:00" Grid.Column="1" Grid.Row="3"></Label>
+                        <Label x:Name="_labelTrainTime" Content="Train Time:" Grid.Column="0" Grid.Row="3"></Label>
                     </Grid>
                 </GroupBox>
-                
-                <GroupBox x:Name="GroupBoxMoneyManager" Header="Money manager" Grid.Column="1" Grid.Row="1" Visibility="Hidden"><!-- TEMP HIDDEN -->
+
+                <GroupBox x:Name="UpdateSettings" Header="Update settings" Grid.Column="1" Grid.Row="1" Visibility="Visible">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Button x:Name="buttonPreviousUpdate" Grid.Row="0" Margin="5" Content="Previous" Click="buttonPreviousUpdate_Click"/>
+                        <Button x:Name="buttonNextUpdate" Grid.Row="1" Margin="5" Content="Next" Click="buttonNextUpdate_Click"/>
+                        <Button x:Name="buttonNewUpdate" Grid.Row="2" Margin="5" Content="New update" Click="buttonNewUpdate_Click"/>
+                        <Button x:Name="buttonCloseSettings" Grid.Row="3" Margin="5" Content="Close settings" Click="buttonCloseSettings_Click" Background="Azure"/>
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox x:Name="GroupBoxNewUpdate" Header="New Update" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <!-- TEMP VISIBLE-->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="0.5*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Label x:Name="_labelUpdateName" Grid.Column="0" Grid.Row="0" Content="Update name:"/>
+                        <TextBox x:Name="textBox" Grid.Column="1" Grid.Row="0" Margin="2"/>
+
+                        <Label x:Name="_labelUpdatePrice" Grid.Column="0" Grid.Row="1" Content="Prize/Hour:"/>
+                        <TextBox x:Name="textBoxUpdatePrice" Grid.Column="1" Grid.Row="1" Margin="2"/>
+
+                        <Label x:Name="_lavelUpdateDescripton" Grid.Column="0" Grid.Row="2" Content="Description:"/>
+                        <TextBox Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" MaxLines="32" Margin="2"/>
+
+                        <Button x:Name="buttonCLoseNewUpdate" Grid.Column="0" Grid.Row="5" Content="Close" Margin="10 2" Click="buttonCLoseNewUpdate_Click"/>
+                        <Button x:Name="buttonSaveNewUpdate" Grid.Column="1" Grid.Row="5" Content="Save update" Margin="10 2" Click="buttonSaveNewUpdate_Click"/>
+                    </Grid>
+                </GroupBox>
+
+                <GroupBox x:Name="GroupBoxMoneyManager" Header="Money manager" Grid.Column="1" Grid.Row="1" Visibility="Hidden">
+                    <!-- TEMP HIDDEN -->
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -132,14 +166,14 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="buttonStartWork" Content="Work" Grid.Column="0" Margin="8" Click="buttonStartWork_Click" Background="Green"/>
-                    <Button x:Name="buttonStartTrain" Content="Train" Grid.Column="1" Margin="8" Click="buttonStartTrain_Click" Background="Yellow"/>
+                    <Button x:Name="buttonStartWork" Content="Work" Grid.Column="0" Margin="8 6" Click="buttonStartWork_Click" Background="Green"/>
+                    <Button x:Name="buttonStartTrain" Content="Train" Grid.Column="1" Margin="8 6" Click="buttonStartTrain_Click" Background="Yellow"/>
 
-                    <Button x:Name="buttonSaveProject" Content="Save" Grid.Column="3" Margin="8" Click="buttonSaveProject_Click"/>
-                    
-                    <Button x:Name="ButtonStop" Content="Stop" Grid.Column="6" Margin="8" Foreground="Black" Click="ButtonStop_Click" Background="Red"/>
+                    <Button x:Name="buttonSaveProject" Content="Save" Grid.Column="3" Margin="8 6" Click="buttonSaveProject_Click"/>
+
+                    <Button x:Name="ButtonStop" Content="Stop" Grid.Column="6" Margin="8 6" Foreground="Black" Click="ButtonStop_Click" Background="Red"/>
                 </Grid>
-                
+
             </Grid>
         </TabItem>
 
@@ -158,8 +192,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="buttonCreateNewProject" Content="Create new Project" Margin="100" Click="buttonCreateNewProject_Click" Grid.Column="0"/>
-                <Button Visibility="Visible" x:Name="buttonLoadNewProject" Content="Load Project" Margin="100" Click="buttonLoadNewProject_Click" Grid.Column="1"/>
+                <Button x:Name="buttonCreateNewProject" Content="Create new Project" Margin="80 100" Click="buttonCreateNewProject_Click" Grid.Column="0"/>
+                <Button Visibility="Visible" x:Name="buttonLoadNewProject" Content="Load Project" Margin="80 100" Click="buttonLoadNewProject_Click" Grid.Column="1"/>
 
                 <GroupBox x:Name="groupBoxCreateNewProject" Grid.Column="1" Visibility="Hidden">
                     <Grid>
@@ -181,7 +215,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                       
+
 
                         <Label Content="Project Name: " Grid.Column="0" Grid.Row="0"/>
                         <TextBox x:Name="textBoxProjectName" Grid.Row="0" Grid.Column="1" Margin="10 2 10 2"/>
@@ -194,7 +228,7 @@
                         <Label Content="Description: " Grid.Column="0" Grid.Row="3"/>
                         <TextBox x:Name="textBoxDescription" Grid.Column="1" Grid.Row="3" MaxLines="32"/>
 
-                        
+
                         <Border Background="Black" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="4"  Margin="0 4 0 2"/>
 
                         <CheckBox x:Name="checkBoxDefaultUpdate" Content=" Default" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="0 0 25 0"/>
@@ -207,7 +241,7 @@
                     </Grid>
                 </GroupBox>
             </Grid>
-            
+
         </TabItem>
 
         <TabItem Name="tabSettings"
@@ -218,25 +252,26 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1.5*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="0.7*" />
+                    <RowDefinition Height="0.8*" />
                     <RowDefinition Height="0.7*" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="6*" />
+                    <RowDefinition Height="3*" />
                 </Grid.RowDefinitions>
 
                 <Label x:Name="_labelLanguage" Content="Language:"/>
-                <ComboBox x:Name="comboBoxLanguage" Grid.Column="1" Grid.Row="0" >
+                <ComboBox x:Name="comboBoxLanguage" Grid.Column="1" Grid.Row="0" Margin="20 5">
                     <ComboBoxItem Content="English" />
                     <ComboBoxItem Content="Čeština" />
                 </ComboBox>
 
                 <Label x:Name="_labelCurrency" Content="Currency" Grid.Column="0" Grid.Row="1"/>
-                <ComboBox x:Name="comboBoxCurrency" Grid.Column="1" Grid.Row="1">
+                <ComboBox x:Name="comboBoxCurrency" Grid.Column="1" Grid.Row="1" Margin="20 5">
                     <ComboBoxItem Content="CZE"/>
                     <ComboBoxItem Content="EUR"/>
                 </ComboBox>
@@ -245,10 +280,10 @@
                 <!-- Time picker out of DateTimePicker?-->
 
                 <Label x:Name="_labelProjectFolderPath" Content="Project folder:" Grid.Row="3" Grid.Column="0"/>
-                <Label x:Name="_labelCurrentProjectFolderPath" Content="C:\Projects\" Grid.Row="3" Grid.Column="1"/>
-                <Button x:Name="buttonChangeProjectFolder" Content="Change Project Folder" Grid.Column="1" Grid.Row="4"/>
+                <Label x:Name="_labelCurrentProjectFolderPath" Content="C:\Projects\" Grid.Row="3" Grid.Column="1" Margin="20 0"/>
+                <Button x:Name="buttonChangeProjectFolder" Content="Change Project Folder" Grid.Column="1" Grid.Row="4" Margin="20 2"/>
 
-                <Button x:Name="buttonSaveConfig" Content="Save" Grid.Column="1" Grid.Row="5"/>
+                <Button x:Name="buttonSaveConfig" Content="Save" Grid.Column="1" Grid.Row="5" Margin="20 5"/>
             </Grid>
         </TabItem>
 

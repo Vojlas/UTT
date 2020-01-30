@@ -1,1 +1,5 @@
-﻿BUG: TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger
+﻿---- BUGS:
+BUG: TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger
+
+---- FIXED:
+FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 
