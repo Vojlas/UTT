@@ -1,5 +1,13 @@
 ﻿---- BUGS:
 BUG: TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger
+BUG: Buttons Controler buttonUpdateSettings_NextUpdate_Click -> Aout of range exception			- FIX: Disable button when no project loaded!
+ERROR: Program doesn't save Update's description
+ERROR: Message after saving projects
+ERROR: Clean form after creating new project!
 
+---- TODO:
+TODO: Re-make files controler -> Add encryption, change files extension
+TODO: Save update description
+TODO: Make View
 ---- FIXED:
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 

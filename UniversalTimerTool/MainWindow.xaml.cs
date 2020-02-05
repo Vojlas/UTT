@@ -29,7 +29,7 @@ namespace UniversalTimerTool
         private System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
         private System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
 
-        List<Project> project = new List<Project>();
+        List<Project> projects = new List<Project>();
         public int ProjectNumber { get; private set; }
         public int UpdateNumber { get; private set; }
 
@@ -43,9 +43,9 @@ namespace UniversalTimerTool
         {
             try
             {
-                project.ElementAt(this.ProjectNumber).AddSeconds(0, 1, work);
+                projects.ElementAt(this.ProjectNumber).AddSeconds(this.UpdateNumber, 1, work);
                 HomeView homeView = new HomeView(this);
-                homeView.ReRenderHomePage(this.project.ElementAt(this.ProjectNumber), 0);
+                homeView.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
             }
             catch (Exception)
             {
@@ -54,17 +54,19 @@ namespace UniversalTimerTool
 
         private void dispatcherTimerAutosave_Tick(object sender, EventArgs e)
         {
-            //TODO: Autosave
-            //UniversalTimerTool.View.HomeView homeView = new View.HomeView(this);
-            //homeView.ProjectsNull();
+            FilesController.FilesController fc = new FilesController.FilesController();
+            foreach (Project project in this.projects)
+            {
+                fc.WriteProjecToProjectFolder(project);
+            }
         }
 
         private void stopTimer()
         {
             dispatcherTimerProject.Stop();
-            ButtonStop.IsEnabled = false;
-            buttonStartWork.IsEnabled = true;
-            buttonStartTrain.IsEnabled = true;
+            buttonMain_Stop.IsEnabled = false;
+            buttonMain_StartWork.IsEnabled = true;
+            buttonMain_StartTrain.IsEnabled = true;
         }
 
         //------------------------------------------------------------------------------
@@ -91,7 +93,7 @@ namespace UniversalTimerTool
 
         private void checkBoxDefaultUpdate_Changed(object sender, RoutedEventArgs e)
         {
-            if ((sender as CheckBox).IsChecked.ToString() == "True")
+            /*if ((sender as CheckBox).IsChecked.ToString() == "True")
             {
                 datePickerCreated.SelectedDate = DateTime.Today;
                 datePickerCreated.IsEnabled = false;
@@ -101,7 +103,7 @@ namespace UniversalTimerTool
                 datePickerCreated.SelectedDate = null;
                 datePickerCreated.IsEnabled = true;
             }
-
+            */
         }
     }
 }

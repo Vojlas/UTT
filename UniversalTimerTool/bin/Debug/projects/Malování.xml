@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<Project>
+  <ProjectMain>
+    <ProjectName>Malování</ProjectName>
+    <Created>31.01.2020 0:00:00</Created>
+    <FileName>Malování.xml</FileName>
+    <Description>Lorem Ipsum Dolor Sit Amet</Description>
+  </ProjectMain>
+  <Update0>
+    <WorkTime>3880000000</WorkTime>
+    <TrainTime>30000000</TrainTime>
+    <LastPricePerHour>0</LastPricePerHour>
+    <UpdateName>Kreslení</UpdateName>
+  </Update0>
+  <Update1>
+    <WorkTime>100000000</WorkTime>
+    <TrainTime>10000000</TrainTime>
+    <LastPricePerHour>0</LastPricePerHour>
+    <UpdateName>Vybarvování</UpdateName>
+  </Update1>
+</Project>

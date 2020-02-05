@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Data;
 using UniversalTimerTool.Model;
+using System.Windows.Forms;
 
 namespace UniversalTimerTool.FilesController
 {
@@ -109,7 +110,7 @@ namespace UniversalTimerTool.FilesController
 
         
         //TODO: public void ImportProject()
-        /*{
+        public Project ImportProject(){
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "XML soubory (*.xml) | *.xml";
@@ -118,11 +119,41 @@ namespace UniversalTimerTool.FilesController
                 {
                     if (!(readXMLasDataset(openFileDialog.FileName) == null))
                     {
-                        this.WriteProjecToProjectFolder(projectFromDataset(readXMLasDataset(openFileDialog.FileName)));
-                        ManageProjects.InvokeProjectToForm1(projectFromDataset(readXMLasDataset(openFileDialog.FileName)));
+                        try
+                        {
+                            DataSet dt = readXMLasDataset(openFileDialog.FileName);
+                            return projectFromDataset(dt);
+                        }
+                        catch (Exception){}   
                     }
                 }
+                return null;
             }
-        }*/
+        }
+
+        private Project projectFromDataset(DataSet dataSet)
+        {
+            List<Update> updates = new List<Update>();
+
+            foreach (DataTable dataTable in dataSet.Tables)
+            {
+                if (dataTable.TableName != "ProjectMain")
+                {
+                    DataRow row = dataTable.Rows[0];
+                    updates.Add(new Update(new DateTime(Convert.ToInt32(row["WorkTime"])), new DateTime(Convert.ToInt32(row["TrainTime"])), Convert.ToInt32(row["LastPricePerHour"]), Convert.ToString(row["UpdateName"])));
+                }
+            }
+
+            foreach (DataTable dataTable in dataSet.Tables)
+            {
+                if (dataTable.TableName == "ProjectMain")
+                {
+                    DataRow row = dataTable.Rows[0];
+                    MessageBox.Show("Project: \""+ Convert.ToString(row["ProjectName"]) + "\" - has been imported");
+                    return new Project(Convert.ToString(row["ProjectName"]), Convert.ToDateTime(row["Created"]), updates, Convert.ToString(row["Description"]));
+                }
+            }
+            return null;
+        }
     }
 }

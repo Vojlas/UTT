@@ -56,8 +56,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ButtonsControler.cs" />
-    <Compile Include="Exceptions.cs" />
+    <Compile Include="Controller\ButtonsControler.cs" />
+    <Compile Include="Model\Exceptions.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="MultiLanguageSupport.cs" />
     <Compile Include="View\HomeView.cs" />
