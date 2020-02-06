@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<Project>
+  <ProjectMain>
+    <ProjectName>Pes</ProjectName>
+    <Created>05.02.2020 0:00:00</Created>
+    <FileName>Pes.xml</FileName>
+    <Description>Lorem Ipsum</Description>
+  </ProjectMain>
+  <Update0>
+    <WorkTime>50000000</WorkTime>
+    <TrainTime>30000000</TrainTime>
+    <LastPricePerHour>0</LastPricePerHour>
+    <UpdateName>Init</UpdateName>
+  </Update0>
+  <Update1>
+    <WorkTime>70000000</WorkTime>
+    <TrainTime>10000000</TrainTime>
+    <LastPricePerHour>255</LastPricePerHour>
+    <UpdateName>Init2</UpdateName>
+  </Update1>
+</Project>

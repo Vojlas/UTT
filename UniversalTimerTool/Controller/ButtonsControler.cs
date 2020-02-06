@@ -66,6 +66,7 @@ namespace UniversalTimerTool
             FilesController.FilesController fc = new FilesController.FilesController();
             Project pr = fc.ImportProject();
             this.projects.Add(pr);
+            ManageMainButtons(true);
             HomeView homeView = new HomeView(this);
             homeView.ReRenderHomePage(pr, 0);
             tabControlMain.SelectedIndex = 0;
@@ -99,7 +100,7 @@ namespace UniversalTimerTool
                 {
                     this.projects.Insert(0, project); //TODO: Logging data
                 }
-
+                ManageMainButtons(true);
                 HomeView homeView = new HomeView(this);
                 homeView.ReRenderHomePage(this.projects.ElementAt(ProjectNumber), 0);
                 MessageBox.Show("Project created!");

@@ -14,10 +14,14 @@ namespace UniversalTimerTool
     {
         private void SetupComponents()
         {
-            this.work = false; buttonMain_Stop.IsEnabled = false;
+            this.work = false; 
             this.ProjectNumber = 0;
             this.UpdateNumber = 0;
-            
+
+            buttonMain_Stop.IsEnabled = false;
+
+            ManageMainButtons(false);
+
             //TimerProject - Initialize
             //System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimerProject.Tick += new EventHandler(dispatcherTimerProject_Tick);
@@ -49,6 +53,16 @@ namespace UniversalTimerTool
                     break;
             }
             //TODO: Language switch || Multilanguage support 
+        }
+
+        public void ManageMainButtons(bool isEnabled)
+        {
+            buttonMain_PreviousProject.IsEnabled = isEnabled;
+            buttonMain_NextProject.IsEnabled = isEnabled;
+            buttonMain_SaveProject.IsEnabled = isEnabled;
+            buttonMain_StartWork.IsEnabled = isEnabled;
+            buttonMain_StartTrain.IsEnabled = isEnabled;
+            buttonMain_ShowUpdateSettings.IsEnabled = isEnabled;
         }
     }
 }
