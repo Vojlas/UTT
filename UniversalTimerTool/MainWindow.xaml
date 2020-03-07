@@ -30,6 +30,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="0.5*"/>
                             <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="1.3*" />
@@ -37,10 +38,12 @@
                         </Grid.RowDefinitions>
                         <Label x:Name="labelProjectName" Content="Create new project ;)" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="18" FontWeight="Bold"></Label>
 
-                        <Button x:Name="buttonMain_PreviousProject"  Grid.Column="3" Content="Back" Margin="5" Click="buttonMain_PreviousProject_Click"/>
-                        <Button x:Name="buttonMain_NextProject" Grid.Column="4" Content="Next" Margin="5" Click="buttonMain_NextProject_Click"/>
+                        <Label x:Name="labelProjectOutOfNumber" Grid.Column="3" Grid.Row="0" Content="0/0" FontSize="15"/>
 
-                        <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></Label>
+                        <Button x:Name="buttonMain_PreviousProject"  Grid.Column="4" Content="Back" Margin="5" Click="buttonMain_PreviousProject_Click"/>
+                        <Button x:Name="buttonMain_NextProject" Grid.Column="5" Content="Next" Margin="5" Click="buttonMain_NextProject_Click"/>
+
+                        <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5"></Label>
                         <Label x:Name="_labelProjectName" Content="Total project time:" Grid.Column="0" Grid.Row="1"></Label>
                     </Grid>
                 </GroupBox>
@@ -50,6 +53,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2.5*" />
                             <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="1.2*" />
                             <ColumnDefinition Width="1.5*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -59,18 +63,20 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <Label x:Name="labelUpdateName" Content="Your updates will be here" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="15" FontWeight="Bold"/>
+                        <Label x:Name="labelUpdateName" Content="Your updates will be here" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" FontSize="13" FontWeight="Bold"/>
                         <Button x:Name="buttonMain_ShowUpdateSettings" Grid.Column="3" Grid.Row="0" Margin="5" Content="Settings" Click="buttonMain_ShowUpdateSettings_Click"/>
 
-                        <Label x:Name="labelTotalUpdateTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"></Label>
+                        <Label x:Name="labelUpdateOutOfNumber" Grid.Column="2" Grid.Row="0" Content="0/0" FontSize="15"/>
+                        
+                        <Label x:Name="labelTotalUpdateTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"></Label>
                         <Label x:Name="_labelTotalUpdateTime" Content="Total Time:" Grid.Column="0" Grid.Row="1"></Label>
 
                         <Border Grid.Column="0" Grid.Row="1" Grid.RowSpan="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0 0 0 1"/>
 
-                        <Label x:Name="labelWorkTime" Content="00:00:00" Grid.Column="1" Grid.Row="2"></Label>
+                        <Label x:Name="labelWorkTime" Content="00:00:00" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"></Label>
                         <Label x:Name="_labelWorkTime" Content="Work Time:" Grid.Column="0" Grid.Row="2"></Label>
 
-                        <Label x:Name="labelTrainTime" Content="00:00:00" Grid.Column="1" Grid.Row="3"></Label>
+                        <Label x:Name="labelTrainTime" Content="00:00:00" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"></Label>
                         <Label x:Name="_labelTrainTime" Content="Train Time:" Grid.Column="0" Grid.Row="3"></Label>
                     </Grid>
                 </GroupBox>
@@ -180,6 +186,23 @@
                  Header="View"
                  HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch">
+            <DataGrid x:Name="dataGridViewProjects" AutoGenerateColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Project name" Binding="{Binding ProjektName}"/>
+                    <DataGridTextColumn Header="Created" Binding="{Binding Created}"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="buttonViewDatagridProject" Click="buttonViewDatagridProject_Click">View</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.Resources>
+                    
+                </DataGrid.Resources>
+            </DataGrid>
         </TabItem>
 
         <TabItem x:Name="tabProjects"

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,16 @@ namespace UniversalTimerTool
         {
             InitializeComponent();
             SetupComponents();
+
+            FilesController.FilesController fs = new FilesController.FilesController();
+            this.projects = fs.Loadprojects();
+            HomeView hm = new HomeView(this);
+            hm.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
+
+            if (this.projects.Count == 0) { ManageMainButtons(false); }
+            else { ManageMainButtons(true); }
+
+            dataGridViewProjects.ItemsSource = this.projects;
         }
 
         private void dispatcherTimerProject_Tick(object sender, EventArgs e)
@@ -45,7 +56,7 @@ namespace UniversalTimerTool
             {
                 projects.ElementAt(this.ProjectNumber).AddSeconds(this.UpdateNumber, 1, work);
                 HomeView homeView = new HomeView(this);
-                homeView.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
+                homeView.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber,this.ProjectNumber, this.projects.Count);
             }
             catch (Exception)
             {
@@ -93,17 +104,28 @@ namespace UniversalTimerTool
 
         private void checkBoxDefaultUpdate_Changed(object sender, RoutedEventArgs e)
         {
-            /*if ((sender as CheckBox).IsChecked.ToString() == "True")
+            if ((sender as CheckBox).IsChecked.ToString() == "True")
             {
-                datePickerCreated.SelectedDate = DateTime.Today;
-                datePickerCreated.IsEnabled = false;
+
+                textBoxUpdateName.Text = "Init";
             }
             else
             {
-                datePickerCreated.SelectedDate = null;
-                datePickerCreated.IsEnabled = true;
+                textBoxUpdateName.Text = "";
             }
-            */
+            
+        }
+
+        private void buttonViewDatagridProject_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Project project = (Project)((Button)e.Source).DataContext;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

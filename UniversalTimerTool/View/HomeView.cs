@@ -46,7 +46,7 @@ namespace UniversalTimerTool.View
             }
         }
 
-        public void ReRenderHomePage(Project project, int UpdateNumber)
+        public void ReRenderHomePage(Project project, int UpdateNumber, int projectNumber, int ProjectsCount)
         {
             mainWindow.labelProjectName.Content = project.ProjektName;
             mainWindow.labelProjectTime.Content = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
@@ -62,7 +62,8 @@ namespace UniversalTimerTool.View
                 project.WorkTrainUpdateTime(UpdateNumber).Hours,
                 project.WorkTrainUpdateTime(UpdateNumber).Minutes,
                 project.WorkTrainUpdateTime(UpdateNumber).Seconds);
-
+            mainWindow.labelProjectOutOfNumber.Content = projectNumber + 1 + " / " + ProjectsCount;
+            mainWindow.labelUpdateOutOfNumber.Content = UpdateNumber + 1 + " / " +  project.Updates.Count;
             //TODO: BUG FIX
         }
 

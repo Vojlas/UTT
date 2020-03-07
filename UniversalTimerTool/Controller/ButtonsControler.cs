@@ -44,31 +44,16 @@ namespace UniversalTimerTool
         }
         private void buttonLoadNewProject_Click(object sender, RoutedEventArgs e) 
         {
-            ////TODO: Import project
-            //// Create OpenFileDialog 
-            //Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
-
-            //// Set filter for file extension and default file extension 
-            //dlg.DefaultExt = ".png";
-            //dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
-
-
-            //// Display OpenFileDialog by calling ShowDialog method 
-            //Nullable<bool> result = dlg.ShowDialog();
-
-
-            //// Get the selected file name and display in a TextBox 
-            //if (result.HasValue && result.Value)
-            //{
-            //    // Open document 
-            //    string filename = dlg.FileName;
-            //}
             FilesController.FilesController fc = new FilesController.FilesController();
-            Project pr = fc.ImportProject();
-            this.projects.Add(pr);
-            ManageMainButtons(true);
-            HomeView homeView = new HomeView(this);
-            homeView.ReRenderHomePage(pr, 0);
+            object[] obj = (object[])fc.ImportProject();
+            Project pr = (Project)obj[0];
+            if (pr != null)
+            {
+                this.projects.Add(pr);
+                ManageMainButtons(true);
+                HomeView homeView = new HomeView(this);
+                homeView.ReRenderHomePage(pr, 0, this.ProjectNumber, this.projects.Count); 
+            }
             tabControlMain.SelectedIndex = 0;
         }
 
@@ -102,8 +87,13 @@ namespace UniversalTimerTool
                 }
                 ManageMainButtons(true);
                 HomeView homeView = new HomeView(this);
-                homeView.ReRenderHomePage(this.projects.ElementAt(ProjectNumber), 0);
+                homeView.ReRenderHomePage(this.projects.ElementAt(ProjectNumber), 0, this.ProjectNumber, this.projects.Count);
                 MessageBox.Show("Project created!");
+
+                //CLEAN form
+                textBoxProjectName.Clear();
+                datePickerCreated.SelectedDate = DateTime.Today;
+                textBoxDescription.Clear();
             }
             else
             {
@@ -128,7 +118,7 @@ namespace UniversalTimerTool
                 this.ProjectNumber--;
             }
             HomeView homeView = new HomeView(this);
-            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
+            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
             stopTimer();
             Console.WriteLine(this.ProjectNumber);
         }
@@ -140,7 +130,7 @@ namespace UniversalTimerTool
                 this.ProjectNumber++;
             }
             HomeView homeView = new HomeView(this);
-            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
+            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
             stopTimer();
             Console.WriteLine(this.ProjectNumber);
         }
@@ -157,7 +147,7 @@ namespace UniversalTimerTool
             {
                 this.UpdateNumber--;
                 HomeView homeView = new HomeView(this);
-                homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
+                homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
                 stopTimer();
                 Console.WriteLine(this.ProjectNumber); //TODO: Delete: Testing Purposes
             }
@@ -174,7 +164,7 @@ namespace UniversalTimerTool
             }
 
             HomeView homeView = new HomeView(this);
-            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber);
+            homeView.ReRenderHomePage(projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
             stopTimer();
             Console.WriteLine(this.ProjectNumber); //TODO: Delete: Testing Purposes
         }
@@ -216,9 +206,9 @@ namespace UniversalTimerTool
                 this.projects.ElementAt(this.ProjectNumber).Updates.Add(u);
             } catch {}
             MessageBox.Show("Update created");
-            textBoxNewUpdate_UpdateDescripton.Text = string.Empty;
-            textBoxNewUpdate_UpdateName.Text = string.Empty;
-            textBoxNewUpdate_UpdatePrice.Text = string.Empty;
+            textBoxNewUpdate_UpdateDescripton.Clear();
+            textBoxNewUpdate_UpdateName.Clear();
+            textBoxNewUpdate_UpdatePrice.Clear();
         }
         private void buttonUpdateSettings_CloseSettings_Click(object sender, RoutedEventArgs e)
         {

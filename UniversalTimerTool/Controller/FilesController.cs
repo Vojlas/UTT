@@ -20,7 +20,8 @@ namespace UniversalTimerTool.FilesController
         /// <param name="path"></param>
         public FilesController()
         {
-            this.path = @"projects\";
+            string version = "1-1-0";
+            this.path = @"projects"+version+"\\";
 
             if (!Directory.Exists(path))
             {
@@ -82,7 +83,7 @@ namespace UniversalTimerTool.FilesController
                 DataColumn dc2 = new DataColumn("TrainTime"); dt.Columns.Add(dc2);
                 DataColumn dc3 = new DataColumn("LastPricePerHour"); dt.Columns.Add(dc3);
                 DataColumn dc4 = new DataColumn("UpdateName"); dt.Columns.Add(dc4);
-                dt.Rows.Add(update.WorkTime.Ticks, update.TrainTime.Ticks, update.LastPricePerHour, update.UpdateName);
+                dt.Rows.Add(update.WorkTime.Second, update.TrainTime.Second, update.LastPricePerHour, update.UpdateName);
 
                 dataTables.Add(dt);
                 counter++;
@@ -94,23 +95,28 @@ namespace UniversalTimerTool.FilesController
             }
         }
 
-        public List<DataSet> Loadprojects()
+        public List<Project> Loadprojects()
         {
             string[] paths = Directory.GetFiles(path, "*.xml");
-            List<DataSet> datasets = new List<DataSet>(path.Length);
+            List<Project> projects = new List<Project>(path.Length);
+            string names = "";
+
             foreach (string path in paths)
             {
                 if (readXMLasDataset(path) != null)
                 {
-                    datasets.Add(readXMLasDataset(path));
+                    object[] obj = (object[])projectFromDataset(readXMLasDataset(path));
+                    projects.Add((Project)obj[0]);
+                    names += ((string)obj[1]);
                 }
             }
-            return datasets;
+            MessageBox.Show(names);
+            return projects;
         }
 
         
         //TODO: public void ImportProject()
-        public Project ImportProject(){
+        public object ImportProject(){
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "XML soubory (*.xml) | *.xml";
@@ -124,23 +130,29 @@ namespace UniversalTimerTool.FilesController
                             DataSet dt = readXMLasDataset(openFileDialog.FileName);
                             return projectFromDataset(dt);
                         }
-                        catch (Exception){}   
+                        catch (Exception) { }
                     }
                 }
                 return null;
             }
         }
 
-        private Project projectFromDataset(DataSet dataSet)
+        private object projectFromDataset(DataSet dataSet)
         {
             List<Update> updates = new List<Update>();
-
+            List<String> names = new List<string>();
+ 
             foreach (DataTable dataTable in dataSet.Tables)
             {
                 if (dataTable.TableName != "ProjectMain")
                 {
                     DataRow row = dataTable.Rows[0];
-                    updates.Add(new Update(new DateTime(Convert.ToInt32(row["WorkTime"])), new DateTime(Convert.ToInt32(row["TrainTime"])), Convert.ToInt32(row["LastPricePerHour"]), Convert.ToString(row["UpdateName"])));
+                    Console.WriteLine(Convert.ToInt32(row["WorkTime"]));
+                    Console.WriteLine(Convert.ToInt32(row["TrainTime"]));
+                    DateTime wTime = new DateTime(0); wTime = wTime.AddSeconds(Convert.ToInt32(row["WorkTime"]));
+                    DateTime tTime = new DateTime(0); tTime = tTime.AddSeconds(Convert.ToInt32(row["TrainTime"]));
+
+                    updates.Add(new Update(wTime,tTime, Convert.ToInt32(row["LastPricePerHour"]), Convert.ToString(row["UpdateName"])));
                 }
             }
 
@@ -149,8 +161,13 @@ namespace UniversalTimerTool.FilesController
                 if (dataTable.TableName == "ProjectMain")
                 {
                     DataRow row = dataTable.Rows[0];
-                    MessageBox.Show("Project: \""+ Convert.ToString(row["ProjectName"]) + "\" - has been imported");
-                    return new Project(Convert.ToString(row["ProjectName"]), Convert.ToDateTime(row["Created"]), updates, Convert.ToString(row["Description"]));
+                    names.Add(Convert.ToString(row["ProjectName"]));    ////MessageBox.Show();
+
+                    object[] obj = new object[2];
+                    obj[0] = new Project(Convert.ToString(row["ProjectName"]), Convert.ToDateTime(row["Created"]), updates, Convert.ToString(row["Description"]));
+                    obj[1] = "Project: \"" + Convert.ToString(row["ProjectName"]) + "\" - has been imported\n";
+
+                    return obj;
                 }
             }
             return null;

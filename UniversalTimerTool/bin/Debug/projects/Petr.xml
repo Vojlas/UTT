@@ -7,8 +7,8 @@
     <Description>Lorem Ipsum</Description>
   </ProjectMain>
   <Update0>
-    <WorkTime>40000000</WorkTime>
-    <TrainTime>20000000</TrainTime>
+    <WorkTime>70000000</WorkTime>
+    <TrainTime>60000000</TrainTime>
     <LastPricePerHour>0</LastPricePerHour>
     <UpdateName>Init</UpdateName>
   </Update0>
@@ -18,4 +18,10 @@
     <LastPricePerHour>255</LastPricePerHour>
     <UpdateName>Lolec</UpdateName>
   </Update1>
+  <Update2>
+    <WorkTime>100000000</WorkTime>
+    <TrainTime>0</TrainTime>
+    <LastPricePerHour>255</LastPricePerHour>
+    <UpdateName>Update3</UpdateName>
+  </Update2>
 </Project>

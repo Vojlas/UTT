@@ -17,24 +17,18 @@ namespace UniversalTimerTool
             this.work = false; 
             this.ProjectNumber = 0;
             this.UpdateNumber = 0;
-
             buttonMain_Stop.IsEnabled = false;
 
-            ManageMainButtons(false);
-
-            //TimerProject - Initialize
-            //System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimerProject.Tick += new EventHandler(dispatcherTimerProject_Tick);
             dispatcherTimerProject.Interval = new TimeSpan(0, 0, 1);
 
-            //TimerAutosava - Initialize
-            //System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimerAutosave.Tick += new EventHandler(dispatcherTimerAutosave_Tick);
-            dispatcherTimerAutosave.Interval = new TimeSpan(0, 5, 0);
-            dispatcherTimerAutosave.Start();
+            dispatcherTimerAutosave.Interval = new TimeSpan(0, 5, 0); dispatcherTimerAutosave.Start();
+
 
             checkboxToday.AddHandler(CheckBox.CheckedEvent, new RoutedEventHandler(checkboxToday_Changed));
             checkboxToday.AddHandler(CheckBox.UncheckedEvent, new RoutedEventHandler(checkboxToday_Changed));
+
             checkBoxDefaultUpdate.AddHandler(CheckBox.CheckedEvent, new RoutedEventHandler(checkBoxDefaultUpdate_Changed));
             checkBoxDefaultUpdate.AddHandler(CheckBox.UncheckedEvent, new RoutedEventHandler(checkBoxDefaultUpdate_Changed));
 
