@@ -24,3 +24,9 @@ D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerT
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.g.resources
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.Properties.Resources.resources
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.csproj.GenerateResource.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\ProjectsView.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\ProjectsView.baml
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\bin\Debug\UniversalTimerTool.exe.manifest
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\bin\Debug\UniversalTimerTool.application
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.exe.manifest
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\UniversalTimerTool.application

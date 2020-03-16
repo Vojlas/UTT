@@ -1,17 +1,19 @@
-﻿---- BUGS: 
+﻿---- Bugs: 
 BUG: some kind of exception when new projects is created and then switched to that project????
 
----- ERRORS || Warnings:
+---- Errors || Warnings::
 WARNING: New update text box multiline 
 WARNING: New project text box multiline
 WARNING: ReRender homepage when new update created
 
----- TODO:
+---- ToDo:
 TODO: Re-make files controler -> Add encryption, change files extension 
 TODO: Make View
-TODO: TODO list for updates ;)
+TODO: TODO list/ for updates ;)
+TODO: Add About button
+TODO: License validation \w www.wz.cz probably ... ;)
 
----- FIXED:
+---- Fixed:
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 
 FIXED -- TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger
 FIXED -- Buttons Controler buttonUpdateSettings_NextUpdate_Click -> Aout of range exception			- FIX: Disable button when no project loaded!

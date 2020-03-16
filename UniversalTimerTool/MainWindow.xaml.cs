@@ -18,6 +18,8 @@ using UniversalTimerTool.DataController;
 using UniversalTimerTool.FilesController;
 using UniversalTimerTool.Model;
 using UniversalTimerTool.View;
+using UniversalTimerTool.Controller;
+
 
 namespace UniversalTimerTool
 {
@@ -42,12 +44,23 @@ namespace UniversalTimerTool
             FilesController.FilesController fs = new FilesController.FilesController();
             this.projects = fs.Loadprojects();
             HomeView hm = new HomeView(this);
-            hm.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
+            try
+            {
+                hm.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
+            }
+            catch (Exception)
+            {
+            }
+            
 
             if (this.projects.Count == 0) { ManageMainButtons(false); }
             else { ManageMainButtons(true); }
 
             dataGridViewProjects.ItemsSource = this.projects;
+
+            //////////
+            //ProjectsView projectsView = new ProjectsView(projects.ElementAt(0));
+            //projectsView.Show();
         }
 
         private void dispatcherTimerProject_Tick(object sender, EventArgs e)
@@ -57,6 +70,8 @@ namespace UniversalTimerTool
                 projects.ElementAt(this.ProjectNumber).AddSeconds(this.UpdateNumber, 1, work);
                 HomeView homeView = new HomeView(this);
                 homeView.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber,this.ProjectNumber, this.projects.Count);
+                MoneyManagerController mc = new MoneyManagerController(this);
+                mc.ReCalculateMoney(this.UpdateNumber, projects.ElementAt(ProjectNumber).Updates);
             }
             catch (Exception)
             {
@@ -121,6 +136,8 @@ namespace UniversalTimerTool
             try
             {
                 Project project = (Project)((Button)e.Source).DataContext;
+                ProjectsView projectsView = new ProjectsView(project);
+                projectsView.Show();
             }
             catch (Exception ex)
             {
