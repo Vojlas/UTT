@@ -20,8 +20,7 @@ namespace UniversalTimerTool.FilesController
         /// <param name="path"></param>
         public FilesController()
         {
-            string version = "1-1-0";
-            this.path = @"projects"+version+"\\";
+            this.path = @"projects\\";
 
             if (!Directory.Exists(path))
             {
@@ -110,7 +109,7 @@ namespace UniversalTimerTool.FilesController
                     names += ((string)obj[1]);
                 }
             }
-            MessageBox.Show(names);
+            if (names != "") MessageBox.Show(names);
             return projects;
         }
 

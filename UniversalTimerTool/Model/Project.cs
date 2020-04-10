@@ -41,7 +41,6 @@ namespace UniversalTimerTool.Model
         public TimeSpan WorkTrainUpdateTime(int updateNumber)
         {
             TimeSpan time = new TimeSpan();
-
             try
             {
                 TimeSpan train = new TimeSpan(this.Updates.ElementAt(updateNumber).TrainTime.Ticks);
@@ -53,7 +52,6 @@ namespace UniversalTimerTool.Model
             {
                 throw new NonExstingUpdateException();
             }
-
             return time;
         }
 

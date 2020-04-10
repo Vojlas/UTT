@@ -12,12 +12,20 @@ namespace UniversalTimerTool.Model
 
         public Update(DateTime workTime, DateTime trainTime, int lastPricePerHour, string updateName, string updateDescription = "")
         {
-            
             this.WorkTime = workTime;
             this.TrainTime = trainTime;
             this.LastPricePerHour = lastPricePerHour;
             this.UpdateName = updateName;
             this.UpdateDescription = updateDescription;
+        }
+
+        public string DisplayWorkTime()
+        {
+            return ((WorkTime.Day*24) + WorkTime.Hour) + ":" + WorkTime.Minute + ":" + WorkTime.Second; 
+        }
+        public string DisplayTrainTime()
+        {
+            return ((TrainTime.Day * 24) + TrainTime.Hour) + ":" + TrainTime.Minute + ":" + TrainTime.Second;
         }
     }
 }

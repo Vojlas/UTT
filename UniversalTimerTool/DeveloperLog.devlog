@@ -1,7 +1,9 @@
 ﻿---- Bugs: 
 BUG: some kind of exception when new projects is created and then switched to that project????
+BUG: No project selected when importing project
 
 ---- Errors || Warnings::
+ERROR: ERROR while project longer then montg in money manager!
 WARNING: New update text box multiline 
 WARNING: New project text box multiline
 WARNING: ReRender homepage when new update created

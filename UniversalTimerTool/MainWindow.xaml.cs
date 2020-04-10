@@ -19,7 +19,7 @@ using UniversalTimerTool.FilesController;
 using UniversalTimerTool.Model;
 using UniversalTimerTool.View;
 using UniversalTimerTool.Controller;
-
+using System.Diagnostics;
 
 namespace UniversalTimerTool
 {
@@ -40,6 +40,9 @@ namespace UniversalTimerTool
         {
             InitializeComponent();
             SetupComponents();
+            
+            LicenseController lc = new LicenseController();
+            lc.CheckRequest();
 
             FilesController.FilesController fs = new FilesController.FilesController();
             this.projects = fs.Loadprojects();
@@ -56,13 +59,8 @@ namespace UniversalTimerTool
             if (this.projects.Count == 0) { ManageMainButtons(false); }
             else { ManageMainButtons(true); }
 
-            dataGridViewProjects.ItemsSource = this.projects;
-
-            //////////
-            //ProjectsView projectsView = new ProjectsView(projects.ElementAt(0));
-            //projectsView.Show();
+            dataGridViewProjects.ItemsSource = this.projects;            
         }
-
         private void dispatcherTimerProject_Tick(object sender, EventArgs e)
         {
             try
