@@ -18,7 +18,7 @@ using UniversalTimerTool.DataController;
 using UniversalTimerTool.FilesController;
 using UniversalTimerTool.Model;
 using UniversalTimerTool.View;
-using UniversalTimerTool.Controller;
+using UniversalTimerTool.CryptoController;
 using System.Diagnostics;
 
 namespace UniversalTimerTool
@@ -40,9 +40,18 @@ namespace UniversalTimerTool
         {
             InitializeComponent();
             SetupComponents();
-            
+
+            LoginView loginView = new LoginView();
+            loginView.ShowDialog();
             LicenseController lc = new LicenseController();
-            lc.CheckRequest();
+            LoginResponseModel login = lc.login(loginView.Email, loginView.Password, true);
+            if (!lc.checkLicense(loginView.Email, login.token))
+            {
+                MessageBox.Show("Nevlastníte platnou licenci!");
+                Environment.Exit(0);
+            }
+
+
 
             FilesController.FilesController fs = new FilesController.FilesController();
             this.projects = fs.Loadprojects();

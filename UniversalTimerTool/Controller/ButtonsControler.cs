@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -46,7 +47,14 @@ namespace UniversalTimerTool
         {
             FilesController.FilesController fc = new FilesController.FilesController();
             object[] obj = (object[])fc.ImportProject();
-            Project pr = (Project)obj[0];
+            Project pr = null;
+
+            if (obj != null)
+            {
+                pr = (Project)obj[0];
+            }
+                
+
             if (pr != null)
             {
                 this.projects.Add(pr);

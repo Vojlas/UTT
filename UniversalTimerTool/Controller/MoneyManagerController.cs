@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UniversalTimerTool.Model;
 
-namespace UniversalTimerTool.Controller
+namespace UniversalTimerTool.CryptoController
 {
     class MoneyManagerController
     {

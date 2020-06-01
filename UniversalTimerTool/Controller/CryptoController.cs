@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 
-namespace UniversalTimerTool.Controller
+namespace UniversalTimerTool.CryptoController
 {
     class CryptoController
     {
