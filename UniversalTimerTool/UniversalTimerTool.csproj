@@ -109,6 +109,7 @@
     <Compile Include="Controller\CryptoController.cs" />
     <Compile Include="Controller\LicenseController.cs" />
     <Compile Include="Controller\MoneyManagerController.cs" />
+    <Compile Include="Controller\PluginController.cs" />
     <Compile Include="Model\Exceptions.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="Controller\MultiLanguageSupportController.cs" />
@@ -119,9 +120,6 @@
     <Compile Include="ReTimeSpan.cs" />
     <Compile Include="ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControlls\PlaceHolderTextBox.xaml.cs">
-      <DependentUpon>PlaceHolderTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.cs" />
     <Compile Include="View\LoginView.xaml.cs">
@@ -142,10 +140,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProjectsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlls\PlaceHolderTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\iconfinder_user-01_186382.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginInterface\PluginInterface.csproj">
+      <Project>{3cd4e5a9-de0c-409a-8f1f-027165515fae}</Project>
+      <Name>PluginInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

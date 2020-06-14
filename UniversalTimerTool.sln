@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalTimerTool", "UniversalTimerTool\UniversalTimerTool.csproj", "{465CACCE-E029-4403-BD0E-04DDB8338A9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginInterface", "PluginInterface\PluginInterface.csproj", "{3CD4E5A9-DE0C-409A-8F1F-027165515FAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AquionPlugin", "AquionPlugin\AquionPlugin.csproj", "{2A6E237F-1EA0-4E83-B9F2-1D4E21F52B82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{465CACCE-E029-4403-BD0E-04DDB8338A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{465CACCE-E029-4403-BD0E-04DDB8338A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{465CACCE-E029-4403-BD0E-04DDB8338A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CD4E5A9-DE0C-409A-8F1F-027165515FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CD4E5A9-DE0C-409A-8F1F-027165515FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CD4E5A9-DE0C-409A-8F1F-027165515FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CD4E5A9-DE0C-409A-8F1F-027165515FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6E237F-1EA0-4E83-B9F2-1D4E21F52B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6E237F-1EA0-4E83-B9F2-1D4E21F52B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6E237F-1EA0-4E83-B9F2-1D4E21F52B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6E237F-1EA0-4E83-B9F2-1D4E21F52B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

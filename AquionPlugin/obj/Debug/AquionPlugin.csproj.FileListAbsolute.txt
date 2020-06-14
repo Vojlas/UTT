@@ -1,0 +1,8 @@
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\bin\Debug\AquionPlugin.dll
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\bin\Debug\AquionPlugin.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\bin\Debug\PluginInterface.dll
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\bin\Debug\PluginInterface.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.csproj.CoreCompileInputs.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.csproj.CopyComplete
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.dll
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.pdb

@@ -3,7 +3,7 @@ BUG: some kind of exception when new projects is created and then switched to th
 BUG: No project selected when importing project
 
 ---- Errors || Warnings::
-ERROR: ERROR while project longer then montg in money manager!
+ERROR: ERROR while project longer then month in money manager!
 WARNING: New update text box multiline 
 WARNING: New project text box multiline
 WARNING: ReRender homepage when new update created
@@ -14,6 +14,11 @@ TODO: Make View
 TODO: TODO list/ for updates ;)
 TODO: Add About button
 TODO: License validation \w www.wz.cz probably ... ;)
+
+TODO: Register link in LoginView
+TODO: No licence -> link - Manage account
+
+TODO: Plugin system - https://www.youtube.com/watch?v=ng5w7HiJRic
 
 ---- Fixed:
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 

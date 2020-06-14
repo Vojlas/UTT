@@ -20,6 +20,7 @@ using UniversalTimerTool.Model;
 using UniversalTimerTool.View;
 using UniversalTimerTool.CryptoController;
 using System.Diagnostics;
+using UniversalTimerTool.Controller;
 
 namespace UniversalTimerTool
 {
@@ -51,7 +52,9 @@ namespace UniversalTimerTool
                 Environment.Exit(0);
             }
 
-
+            //TESTTESTTEST
+            PluginController plugin = new PluginController();
+            //TESTTESTTEST
 
             FilesController.FilesController fs = new FilesController.FilesController();
             this.projects = fs.Loadprojects();

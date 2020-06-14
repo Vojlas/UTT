@@ -55,14 +55,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UniversalTimerTool.exe" size="321536">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PluginInterface.dll" size="4096">
+      <assemblyIdentity name="PluginInterface" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>l6iAEziechaJ4jzAF7rwQ4yovY1vZKa7+KzCqP1dJuU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UniversalTimerTool.exe" size="318976">
       <assemblyIdentity name="UniversalTimerTool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>RGfqshgKej3Orwye0SOOmnEGX8prslWnPdY76fLyTXo=</dsig:DigestValue>
+        <dsig:DigestValue>939Z+0/4sJV4pGkOh6bY+xLnAmLfzAV1QU74K6LfyoE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

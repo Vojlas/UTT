@@ -4,9 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversalTimerTool.View"
-        xmlns:uc="clr-namespace:UniversalTimerTool.UserControlls"
         mc:Ignorable="d"
-        Title="Universal Timer Tool - Login" Height="250" Width="250" Closing="Window_Closing">
+        Title="Universal Timer Tool - Login" Height="250" Width="250" Closing="Window_Closing" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="PasswordBox" x:Key="roundcornerpassword">
             <Setter Property="PasswordChar" Value="●"/>
@@ -59,10 +58,6 @@
 
         <PasswordBox x:Name="txbPass" Style="{StaticResource roundcornerpassword}" Grid.Row="2"  Grid.Column="1" Margin="15 8" VerticalContentAlignment="Center" Padding="10 0 0 0" GotFocus="txbPass_GotFocus" LostFocus="txbPass_LostFocus" PreviewKeyDown="txbPass_PreviewKeyDown"/>
 
-        <!--
-            <uc:PlaceHolderTextBox Margin="15 8" PlaceHolder="Email" Holder="Email" Grid.Column="1" Grid.Row="1"  source="http://www.f4vopa.tode.cz/Images/UTT/person.png" CornerRadius="8"/>
-            <uc:PlaceHolderTextBox Margin="15 8" PlaceHolder="Password" Holder="Password" Grid.Column="1" Grid.Row="2"  source="http://www.f4vopa.tode.cz/Images/UTT/lock.png" CornerRadius="8"/>
-            -->
         <Button x:Name="btnLogin" Grid.Row="3" Grid.Column="1" Margin="15 8" Content="Login" Click="btnLogin_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -70,6 +65,5 @@
                 </Style>
             </Button.Resources>
         </Button>
-
     </Grid>
 </Window>

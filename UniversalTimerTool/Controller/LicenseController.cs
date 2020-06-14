@@ -30,6 +30,8 @@ namespace UniversalTimerTool.CryptoController
         {
 #if DEBUG
             Console.WriteLine("--- Debug version --- \n--- Debug version ---  \n--- Debug version --- ");
+            MessageBox.Show("You're using debug version!!","Debug warning", MessageBoxButton.OK);
+            Console.WriteLine("--- Debug version --- \n--- Debug version ---  \n--- Debug version --- ");
 #endif
         }
 

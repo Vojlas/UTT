@@ -1,0 +1,6 @@
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\bin\Debug\PluginInterface.dll
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\bin\Debug\PluginInterface.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\obj\Debug\PluginInterface.csprojAssemblyReference.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\obj\Debug\PluginInterface.csproj.CoreCompileInputs.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\obj\Debug\PluginInterface.dll
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\PluginInterface\obj\Debug\PluginInterface.pdb
