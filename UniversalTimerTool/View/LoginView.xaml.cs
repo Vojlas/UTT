@@ -1,4 +1,7 @@
-﻿using System;
+﻿#define DEBUG
+//#undef DEBUG
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,10 +29,11 @@ namespace UniversalTimerTool.View
         
         public LoginView()
         {
+#if DEBUG
+            Console.WriteLine("LoginView.xaml.cs \t DEBUG = TRUE");
+#endif
             InitializeComponent();
             PreparePlaceholders();
-
-
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -103,6 +107,20 @@ namespace UniversalTimerTool.View
                 btnLogin_Click(sender, e);
                 e.Handled = true;
             }
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+#if DEBUG
+            System.Diagnostics.Process.Start("http://localhost/xxxxxxx");
+#else
+            System.Diagnostics.Process.Start("http://www.f4vopa.wz.cz/xxxxxxx");
+#endif
+        }
+
+        private void btnResetPass_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Dumb pass!");
         }
     }
 }

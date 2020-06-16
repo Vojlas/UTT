@@ -1,5 +1,5 @@
 ﻿#define DEBUG
-
+//#undef DEBUG
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +19,18 @@ namespace UniversalTimerTool.CryptoController
 {
     class LicenseController
     {
-#if !DEBUG
-        private string loginURL = "http://F4vopa.wz.cz/API/login";
-        private string licenseCheckURL = "http://F4vopa.wz.cz/API/license/check";
-#else
+#if DEBUG
         private string loginURL = "http://localhost/API/login?debug=true";
         private string licenseCheckURL = "http://localhost/API/license/check?debug=true";
+#else
+        private string loginURL = "http://F4vopa.wz.cz/API/login";
+        private string licenseCheckURL = "http://F4vopa.wz.cz/API/license/check";
+        
 #endif
         public LicenseController()
         {
 #if DEBUG
-            Console.WriteLine("--- Debug version --- \n--- Debug version ---  \n--- Debug version --- ");
-            MessageBox.Show("You're using debug version!!","Debug warning", MessageBoxButton.OK);
-            Console.WriteLine("--- Debug version --- \n--- Debug version ---  \n--- Debug version --- ");
+            Console.WriteLine("LicenceController.cs \t DEBUG = TRUE");
 #endif
         }
 

@@ -65,5 +65,30 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <Grid Grid.Row="4" Grid.Column="1" Margin="5 0 5 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnRegister" Margin="10 5" Click="btnRegister_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8" />
+                    </Style>
+                </Button.Resources>
+                <TextBlock Text="Don't have an account? Sign up"  TextWrapping="WrapWithOverflow" FontSize="9" VerticalAlignment="Center" TextAlignment="Center"/>
+            </Button>
+
+            <Button Grid.Column="1" x:Name="btnResetPass" Margin="10 5" Click="btnResetPass_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="8" />
+                    </Style>
+                </Button.Resources>
+                <TextBlock Text="Forgot password?"  TextWrapping="WrapWithOverflow" FontSize="9" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
+            </Button>
+        </Grid>
     </Grid>
 </Window>
