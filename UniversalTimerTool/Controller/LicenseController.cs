@@ -1,5 +1,5 @@
-﻿#define DEBUG
-//#undef DEBUG
+﻿//#define DEBUG
+#undef DEBUG
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,24 +41,47 @@ namespace UniversalTimerTool.CryptoController
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream())) //Error Cant connect to server && No internet
-            {
-                string json = "{\"email\":\"" + lm.Username + "\"," +
-                              "\"pass\":\"" + lm.Pass + "\"}";
-
-                streamWriter.Write(json);
-            }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse(); //Error Http - 401
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var tmp = streamReader.ReadToEnd();
-                LoginResponseModel response = JsonConvert.DeserializeObject<LoginResponseModel>(tmp);
-                if (response.status == "200")
+           // try //Internet connection, Server down, wrong credentials
+           // {
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream())) //Error Cant connect to server && No internet
                 {
-                    return response;
+                    string json = "{\"email\":\"" + lm.Username + "\"," +
+                                  "\"pass\":\"" + lm.Pass + "\"}";
+
+                    streamWriter.Write(json);
+                }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+
+            try //Error Http - 401
+            {
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var tmp = streamReader.ReadToEnd();
+                    LoginResponseModel response = JsonConvert.DeserializeObject<LoginResponseModel>(tmp);
+                    if (response.status == "200")
+                    {
+                        return response;
+                    }
                 }
             }
+            catch (WebException webEx)
+            {
+                if (webEx.Status == WebExceptionStatus.ProtocolError)
+                {
+                    var response = webEx.Response as HttpWebResponse;
+                    if ((int)response.StatusCode == 401) {
+                        MessageBox.Show("Wrong credentials!");
+                        return null;
+                    }
+                }
+            } 
+            
             return null;
         }
 

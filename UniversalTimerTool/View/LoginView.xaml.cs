@@ -1,9 +1,11 @@
-﻿#define DEBUG
-//#undef DEBUG
+﻿//#define DEBUG
+#undef DEBUG
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace UniversalTimerTool.View
@@ -22,8 +25,6 @@ namespace UniversalTimerTool.View
     /// </summary>
     public partial class LoginView : Window
     {
-        private string EmailPlaceholder = "Email";
-        private string PassPlaceholder = "Password";
         public string Password {get;private set;}
         public string Email { get;private set; }
         
@@ -33,94 +34,54 @@ namespace UniversalTimerTool.View
             Console.WriteLine("LoginView.xaml.cs \t DEBUG = TRUE");
 #endif
             InitializeComponent();
-            PreparePlaceholders();
+            LoGinBrowser.Navigated += new NavigatedEventHandler(wbMain_Navigated);
+
+            LoGinBrowser.Navigate("http://localhost/API/LoginUser");
+            //PreparePlaceholders();
+        }
+
+        private void wbMain_Navigated(object sender, NavigationEventArgs e)
+        {
+            SetSilent(LoGinBrowser, true);
+            if (LoGinBrowser.Source.ToString().Contains("/.exit"))
+            {
+                MessageBox.Show("HEAL YEOI");
+            }
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (txbEmail.Text == EmailPlaceholder && PassPlaceholder == txbPass.Password)
+
+        }
+
+
+        private void SetSilent(WebBrowser browser, bool silent)
+        {
+            if (browser == null)
+                throw new ArgumentNullException("browser");
+
+            // get an IWebBrowser2 from the document
+            IOleServiceProvider sp = browser.Document as IOleServiceProvider;
+            if (sp != null)
             {
-                MessageBox.Show("Bez příhlášení nemůžete pokračovat!");
-                Environment.Exit(0); 
+                Guid IID_IWebBrowserApp = new Guid("0002DF05-0000-0000-C000-000000000046");
+                Guid IID_IWebBrowser2 = new Guid("D30C1661-CDAF-11d0-8A3E-00C04FC9E26E");
+
+                object webBrowser;
+                sp.QueryService(ref IID_IWebBrowserApp, ref IID_IWebBrowser2, out webBrowser);
+                if (webBrowser != null)
+                {
+                    webBrowser.GetType().InvokeMember("Silent", BindingFlags.Instance | BindingFlags.Public | BindingFlags.PutDispProperty, null, webBrowser, new object[] { silent });
+                }
             }
         }
 
-        //------------------------------------------------------------------
-        //------------------------------------------------------------------
-        //------------------------------------------------------------------
-        private void PreparePlaceholders() {
-            txbEmail.Foreground = Brushes.Gray;
-            txbEmail.Text = EmailPlaceholder;
 
-            txbPass.Foreground = Brushes.Gray;
-            txbPass.Password = PassPlaceholder;
-        }
-
-        private void txbEmail_GotFocus(object sender, RoutedEventArgs e)
+        [ComImport, Guid("6D5140C1-7436-11CE-8034-00AA006009FA"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        private interface IOleServiceProvider
         {
-            if (txbEmail.Text == EmailPlaceholder) {
-                txbEmail.Clear();
-                txbEmail.Foreground = Brushes.Black;
-            }
-        }
-
-        private void txbPass_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txbPass.Password == PassPlaceholder)
-            {
-                txbPass.Clear();
-                txbPass.Foreground = Brushes.Black;
-            }
-        }
-
-        private void txbPass_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txbPass.Password == String.Empty)
-            {
-                txbPass.Foreground = Brushes.Gray;
-                txbPass.Password = PassPlaceholder;
-            }
-        }
-
-        private void txbEmail_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (txbEmail.Text == String.Empty)
-            {
-                txbEmail.Foreground = Brushes.Gray;
-                txbEmail.Text = EmailPlaceholder;
-            }
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            CryptoController.CryptoController crypto = new CryptoController.CryptoController();
-            this.Email = txbEmail.Text;
-            string salt = crypto.ComputeSha256Hash(this.Email);
-            this.Password = crypto.ComputeSha256Hash(salt + txbPass.Password + salt);         
-            this.Close();
-        }
-
-        private void txbPass_PreviewKeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                btnLogin_Click(sender, e);
-                e.Handled = true;
-            }
-        }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-#if DEBUG
-            System.Diagnostics.Process.Start("http://localhost/xxxxxxx");
-#else
-            System.Diagnostics.Process.Start("http://www.f4vopa.wz.cz/xxxxxxx");
-#endif
-        }
-
-        private void btnResetPass_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Dumb pass!");
+            [PreserveSig]
+            int QueryService([In] ref Guid guidService, [In] ref Guid riid, [MarshalAs(UnmanagedType.IDispatch)] out object ppvObject);
         }
     }
 }

@@ -1,14 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PluginInterface
 {
-    public interface PluginInterface
+    public interface IPlugin
     {
-        void run();
-        string modulName();
+        IPluginHost Host { get; set; }
+        string Name { get; }
+        string Description { get; }
+        string Author { get; }
+        string Version { get; }
+        System.Windows.Controls.Control MainInterface { get; }
+
+        void Initialize();
+        void Dispose();
+    }
+
+    public interface IPluginHost
+    {
+        void Feedback(string Feedback, IPlugin plugin);
     }
 }

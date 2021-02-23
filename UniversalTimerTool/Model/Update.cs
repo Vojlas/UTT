@@ -21,11 +21,11 @@ namespace UniversalTimerTool.Model
 
         public string DisplayWorkTime()
         {
-            return ((WorkTime.Day*24) + WorkTime.Hour) + ":" + WorkTime.Minute + ":" + WorkTime.Second; 
+            return (((WorkTime.Day-1)*24) + WorkTime.Hour) + ":" + WorkTime.Minute + ":" + WorkTime.Second; 
         }
         public string DisplayTrainTime()
         {
-            return ((TrainTime.Day * 24) + TrainTime.Hour) + ":" + TrainTime.Minute + ":" + TrainTime.Second;
+            return (((TrainTime.Day-1) * 24) + TrainTime.Hour) + ":" + TrainTime.Minute + ":" + TrainTime.Second;
         }
     }
 }

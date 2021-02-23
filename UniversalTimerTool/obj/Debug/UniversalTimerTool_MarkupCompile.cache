@@ -1,7 +1,7 @@
 ﻿UniversalTimerTool
 
 
-exe
+winexe
 C#
 .cs
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\
@@ -12,7 +12,7 @@ DEBUG;TRACE
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\App.xaml
 3492291043
 
-25-95176594
+26-1384690871
 18100423420
 MainWindow.xaml;ProjectsView.xaml;View\LoginView.xaml;
 

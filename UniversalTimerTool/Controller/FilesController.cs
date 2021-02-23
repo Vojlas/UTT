@@ -20,7 +20,7 @@ namespace UniversalTimerTool.FilesController
         /// <param name="path"></param>
         public FilesController()
         {
-            this.path = @"projects\\";
+            this.path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+"//UTT-TimerTool//Projects";
 
             if (!Directory.Exists(path))
             {

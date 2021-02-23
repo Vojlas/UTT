@@ -38,10 +38,10 @@
                         </Grid.RowDefinitions>
                         <Label x:Name="labelProjectName" Content="Create new project ;)" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" FontSize="18" FontWeight="Bold"></Label>
 
-                        <Label x:Name="labelProjectOutOfNumber" Grid.Column="3" Grid.Row="0" Content="0/0" FontSize="15"/>
+                        <Label x:Name="labelProjectOutOfNumber" Grid.Column="4" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Content="0/0" FontSize="15"/>
 
-                        <Button x:Name="buttonMain_PreviousProject"  Grid.Column="4" Content="Back" Margin="5" Click="buttonMain_PreviousProject_Click"/>
-                        <Button x:Name="buttonMain_NextProject" Grid.Column="5" Content="Next" Margin="5" Click="buttonMain_NextProject_Click"/>
+                        <Button x:Name="buttonMain_PreviousProject" FontFamily="Marlett" FontSize="20" Content="5" Grid.Row="0" Grid.Column="5" Margin="5 2"/>
+                        <Button x:Name="buttonMain_NextProject" FontFamily="Marlett" FontSize="20" Content="6" Grid.Row="1" Grid.Column="5" Margin="5 2"/>
 
                         <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5"></Label>
                         <Label x:Name="_labelProjectName" Content="Total project time:" Grid.Column="0" Grid.Row="1"></Label>
@@ -143,7 +143,7 @@
                         </Grid.RowDefinitions>
 
                         <Label x:Name="_labelMoneyManager_PricePerHour" Content="Price per hour: " Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" />
-                        <TextBox x:Name="textBoxMoneyManagerMoneyInput" Text="0,00 Kč" IsReadOnly="False" Grid.Column="1" />
+                        <TextBox x:Name="textBoxMoneyManagerMoneyInput" Text="0,00 Kč" IsReadOnly="False" Grid.Column="1"/>
 
                         <Label x:Name="labelMoneyManager_PriceWork" Content="0,00 Kč" Grid.Column="1" Grid.Row="1" Foreground="Green"/>
                         <Label x:Name="_labelMoneyManager_PriceWork" Content="Price Work:" Grid.Column="0" Grid.Row="1" />
@@ -263,6 +263,21 @@
                 </GroupBox>
             </Grid>
 
+        </TabItem>
+
+        <TabItem Name="tabAddons" Header="Addons" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel x:Name="pnlAddons" Grid.Column="0">
+                    <TreeView x:Name="ListViewAddons" SelectedItemChanged="ListViewAddons_Selected"/>
+                </StackPanel>
+
+                <ContentControl x:Name="pnlAddonScreen" Grid.Column="1"/>
+            </Grid>
         </TabItem>
 
         <TabItem Name="tabSettings"

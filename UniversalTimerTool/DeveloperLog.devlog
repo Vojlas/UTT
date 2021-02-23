@@ -1,6 +1,9 @@
 ﻿---- Bugs: 
 BUG: some kind of exception when new projects is created and then switched to that project????
 BUG: No project selected when importing project
+BUG: No internet exception
+BUG: Wrong credentials exception
+BUG: No licence exception -> "buy" licence  ---> TODO: No licence -> link - Manage account
 
 ---- Errors || Warnings::
 ERROR: ERROR while project longer then month in money manager!
@@ -8,17 +11,20 @@ WARNING: New update text box multiline
 WARNING: New project text box multiline
 WARNING: ReRender homepage when new update created
 
+---- REQ:
+APP:
+[ x ] - Money Manager
+[  ] - ToDo List for updates
+
+WEB:
+[   ] - SQL server save - probably only for WebSide
+[   ] - License Mangment - WebSide
+
 ---- ToDo:
-TODO: Re-make files controler -> Add encryption, change files extension 
-TODO: Make View
-TODO: TODO list/ for updates ;)
 TODO: Add About button
-TODO: License validation \w www.wz.cz probably ... ;)
-
-TODO: Register link in LoginView
-TODO: No licence -> link - Manage account
-
-TODO: Plugin system - https://www.youtube.com/watch?v=ng5w7HiJRic
+TODO: move login logic into loginView.xaml.cs
+IMPORTANT TODO: SESSION MONEY MANGMENT --> SESSION LOG -> DAILY
+IDEA: Re-make files controler -> Add encryption, change files extension 
 
 ---- Fixed:
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 
@@ -31,3 +37,7 @@ FIXED? -- Program doesn't save Update's description - Did nothing
 FIXED? -- Save update description - Did nothing
 FIXED: Add project n° / all projects N°
 FIXED: Add update n° / all updates N°
+DONE: Register link in LoginView
+DONE: License validation \w www.wz.cz probably ... ;)
+DONE: Make View
+DONE: Plugin system

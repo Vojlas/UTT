@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversalTimerTool.View"
         mc:Ignorable="d"
-        Title="Universal Timer Tool - Login" Height="250" Width="250" Closing="Window_Closing" ResizeMode="NoResize">
+        Title="Universal Timer Tool - Login" Height="360" Width="300" Closing="Window_Closing" ResizeMode="NoResize">
+    <!--
     <Window.Resources>
         <Style TargetType="PasswordBox" x:Key="roundcornerpassword">
             <Setter Property="PasswordChar" Value="●"/>
@@ -90,5 +91,8 @@
                 <TextBlock Text="Forgot password?"  TextWrapping="WrapWithOverflow" FontSize="9" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
             </Button>
         </Grid>
-    </Grid>
+    </Grid>-->
+
+
+    <WebBrowser x:Name="LoGinBrowser" />
 </Window>

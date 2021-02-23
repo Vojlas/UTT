@@ -6,3 +6,9 @@ D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\ob
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.csproj.CopyComplete
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.dll
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.pdb
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.csprojAssemblyReference.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\ctmMain.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin_MarkupCompile.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin_MarkupCompile.lref
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\ctmMain.baml
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\AquionPlugin\obj\Debug\AquionPlugin.g.resources

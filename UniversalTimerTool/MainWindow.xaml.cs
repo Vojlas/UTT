@@ -22,6 +22,7 @@ using UniversalTimerTool.CryptoController;
 using System.Diagnostics;
 using UniversalTimerTool.Controller;
 
+
 namespace UniversalTimerTool
 {
     /// <summary>
@@ -32,6 +33,7 @@ namespace UniversalTimerTool
         private bool work { get; set; }
         private System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
         private System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
+        private PluginController pc { get; set; }
 
         List<Project> projects = new List<Project>();
         public int ProjectNumber { get; private set; }
@@ -42,18 +44,30 @@ namespace UniversalTimerTool
             InitializeComponent();
             SetupComponents();
 
+            //TRY CATCH -> INTERNET
             LoginView loginView = new LoginView();
             loginView.ShowDialog();
             LicenseController lc = new LicenseController();
-            LoginResponseModel login = lc.login(loginView.Email, loginView.Password, true);
-            if (!lc.checkLicense(loginView.Email, login.token))
-            {
-                MessageBox.Show("Nevlastníte platnou licenci!");
-                Environment.Exit(0);
-            }
+            //LoginResponseModel login = lc.login(loginView.Email, loginView.Password, true);
+            //if (!lc.checkLicense(loginView.Email, login.token))
+            //{
+            //    MessageBox.Show("Nevlastníte platnou licenci!");
+            //    Environment.Exit(0);
+            //}
 
             //TESTTESTTEST
-            PluginController plugin = new PluginController();
+                //Call the find plugins routine, to search in our Plugins Folder
+                this.pc = new PluginController();
+
+                pc.FindPlugins(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "//UTT-TimerTool//Addons");
+
+                //Add each plugin to the treeview
+                foreach (Controller.Types.AvailablePlugin pluginOn in pc.AvailablePlugins)
+                {
+                //System.Windows.Forms.TreeNode newNode = new System.Windows.Forms.TreeNode(pluginOn.Instance.Name);
+                    this.ListViewAddons.Items.Add(pluginOn.Instance.Name);
+                  //  newNode = null;
+                }
             //TESTTESTTEST
 
             FilesController.FilesController fs = new FilesController.FilesController();
@@ -154,5 +168,31 @@ namespace UniversalTimerTool
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private void ListViewAddons_Selected(object sender, RoutedEventArgs e)
+        {
+            //Make sure there's a selected Plugin
+            if (this.ListViewAddons.SelectedItem != null)
+            {
+                //Get the selected Plugin
+                Controller.Types.AvailablePlugin selectedPlugin = pc.AvailablePlugins.Find(ListViewAddons.SelectedValue.ToString());
+
+                if (selectedPlugin != null)
+                {
+                    //Clear the current panel of any other plugin controls... 
+                    //Note: this only affects visuals.. doesn't close the instance of the plugin
+
+
+                    //Set the dockstyle of the plugin to fill, to fill up the space provided
+                    //selectedPlugin.Instance.MainInterface.Dock = System.Windows.Forms.DockStyle.Fill;
+
+                    //Finally, add the usercontrol to the panel... Tadah!
+                    this.pnlAddonScreen.Content = selectedPlugin.Instance.MainInterface;
+                    //this.pnlAddonScreen.Children.Add(selectedPlugin.Instance.MainInterface);
+
+                }
+            }
+        }
+
     }
 }
