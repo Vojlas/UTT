@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace UniversalTimerTool.Model
 {
@@ -9,6 +10,7 @@ namespace UniversalTimerTool.Model
         public int LastPricePerHour { get; set; }
         public string UpdateName { get; set; }
         public string UpdateDescription { get; set; }
+        public List<ToDo> ToDoList { get; set; }
 
         public Update(DateTime workTime, DateTime trainTime, int lastPricePerHour, string updateName, string updateDescription = "")
         {
