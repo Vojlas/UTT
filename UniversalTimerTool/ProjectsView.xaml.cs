@@ -28,10 +28,10 @@ namespace UniversalTimerTool
 
             textBoxProjectName.Text = project.ProjektName;
             textBoxProjectTime.Text = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.TotalTimeFromUpdates().Days,
-                project.TotalTimeFromUpdates().Hours,
-                project.TotalTimeFromUpdates().Minutes,
-                project.TotalTimeFromUpdates().Seconds);
+                project.TotalProjectTime().Days,
+                project.TotalProjectTime().Hours,
+                project.TotalProjectTime().Minutes,
+                project.TotalProjectTime().Seconds);
             textBoxProjectDescription.Text = project.Description;
             textBoxProjectTrainTime.Text = "function not implemented";
             textBoxProjectWorkTime.Text = "function not implemented";
@@ -40,10 +40,10 @@ namespace UniversalTimerTool
 
             textBoxUpdateName.Text = project.Updates.ElementAt(UpdateNumber).UpdateName;
             textBoxUpdateTime.Text = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.WorkTrainUpdateTime(UpdateNumber).Days,
-                project.WorkTrainUpdateTime(UpdateNumber).Hours,
-                project.WorkTrainUpdateTime(UpdateNumber).Minutes,
-                project.WorkTrainUpdateTime(UpdateNumber).Seconds);
+                project.TotalUpdateTime(UpdateNumber).Days,
+                project.TotalUpdateTime(UpdateNumber).Hours,
+                project.TotalUpdateTime(UpdateNumber).Minutes,
+                project.TotalUpdateTime(UpdateNumber).Seconds);
             textBoxUpdateDescription.Text = project.Updates.ElementAt(UpdateNumber).UpdateDescription;
             textBoxUpdateTrainTime.Text = String.Format("{0:T}", project.Updates.ElementAt(UpdateNumber).TrainTime);
             textBoxUpdateWorkTime.Text = String.Format("{0:T}", project.Updates.ElementAt(UpdateNumber).WorkTime);

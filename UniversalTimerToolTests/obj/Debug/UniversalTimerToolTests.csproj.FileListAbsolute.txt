@@ -1,0 +1,2 @@
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerToolTests\obj\Debug\UniversalTimerToolTests.csprojAssemblyReference.cache
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerToolTests\obj\Debug\UniversalTimerToolTests.csproj.CoreCompileInputs.cache

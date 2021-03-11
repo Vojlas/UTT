@@ -50,20 +50,20 @@ namespace UniversalTimerTool.View
         {
             mainWindow.labelProjectName.Content = project.ProjektName;
             mainWindow.labelProjectTime.Content = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.TotalTimeFromUpdates().Days,
-                project.TotalTimeFromUpdates().Hours,
-                project.TotalTimeFromUpdates().Minutes,
-                project.TotalTimeFromUpdates().Seconds);
+                project.TotalProjectTime().Days,
+                project.TotalProjectTime().Hours,
+                project.TotalProjectTime().Minutes,
+                project.TotalProjectTime().Seconds);
             mainWindow.labelUpdateName.Content = project.Updates.ElementAt(UpdateNumber).UpdateName;
 
             mainWindow.labelWorkTime.Content = String.Format("{0}:{1}:{2}", (project.Updates.ElementAt(UpdateNumber).WorkTime.Day-1)*24+ project.Updates.ElementAt(UpdateNumber).WorkTime.Hour, project.Updates.ElementAt(UpdateNumber).WorkTime.Minute, project.Updates.ElementAt(UpdateNumber).WorkTime.Second);
             mainWindow.labelTrainTime.Content = String.Format("{0}:{1}:{2}", (project.Updates.ElementAt(UpdateNumber).TrainTime.Day-1) * 24 + project.Updates.ElementAt(UpdateNumber).TrainTime.Hour, project.Updates.ElementAt(UpdateNumber).TrainTime.Minute, project.Updates.ElementAt(UpdateNumber).TrainTime.Second);
 
             mainWindow.labelTotalUpdateTime.Content = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.WorkTrainUpdateTime(UpdateNumber).Days,
-                project.WorkTrainUpdateTime(UpdateNumber).Hours,
-                project.WorkTrainUpdateTime(UpdateNumber).Minutes,
-                project.WorkTrainUpdateTime(UpdateNumber).Seconds);
+                project.TotalUpdateTime(UpdateNumber).Days,
+                project.TotalUpdateTime(UpdateNumber).Hours,
+                project.TotalUpdateTime(UpdateNumber).Minutes,
+                project.TotalUpdateTime(UpdateNumber).Seconds);
             mainWindow.labelProjectOutOfNumber.Content = projectNumber + 1 + " / " + ProjectsCount;
             mainWindow.labelUpdateOutOfNumber.Content = UpdateNumber + 1 + " / " +  project.Updates.Count;
             //TODO: BUG FIX

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UniversalTimerTool.Model
 {
@@ -25,50 +23,31 @@ namespace UniversalTimerTool.Model
         }
         private string getSafeFilename(string filename) { return string.Join("", filename.Split(Path.GetInvalidFileNameChars())); }
 
-        public TimeSpan TotalTimeFromUpdates()
+        public Time TotalProjectTime()
         {
-            TimeSpan time = new TimeSpan();
+            Time time = new Time();
             foreach (Update update in this.Updates)
             {
-                TimeSpan train = new TimeSpan(update.TrainTime.Ticks);
-                TimeSpan work = new TimeSpan(update.WorkTime.Ticks);
-                time = time.Add(train);
-                time = time.Add(work);
+                time = time.Add(update.Train);
+                time = time.Add(update.Work);
             }
             return time;
         }
 
-        public TimeSpan WorkTrainUpdateTime(int updateNumber)
+        public Time TotalUpdateTime(int updateNumber)
         {
-            TimeSpan time = new TimeSpan();
-            try
-            {
-                TimeSpan train = new TimeSpan(this.Updates.ElementAt(updateNumber).TrainTime.Ticks);
-                TimeSpan work = new TimeSpan(this.Updates.ElementAt(updateNumber).WorkTime.Ticks);
-                time = time.Add(train);
-                time = time.Add(work);
-            }
-            catch (Exception)
-            {
-                throw new NonExstingUpdateException();
-            }
+            if (updateNumber >= this.Updates.Count) throw new NonExstingUpdateException();
+            Time time = new Time();
+            time = time.Add(this.Updates.ElementAt(updateNumber).Train);
+            time = time.Add(this.Updates.ElementAt(updateNumber).Work);
             return time;
         }
 
-        public void AddSeconds(int UpdateNumber, int seconds, bool work)
+        public void AddSeconds(int updateNumber, int seconds, bool work)
         {
-            try
-            {
-                if (work) this.Updates.ElementAt(UpdateNumber).WorkTime = this.Updates.ElementAt(UpdateNumber).WorkTime.AddSeconds(seconds);
-                else
-                {
-                    this.Updates.ElementAt(UpdateNumber).TrainTime = this.Updates.ElementAt(UpdateNumber).TrainTime.AddSeconds(seconds);
-                }
-            }
-            catch (Exception)
-            {
-                throw new NonExstingUpdateException();
-            }
+            if (updateNumber >= this.Updates.Count) throw new NonExstingUpdateException();
+            if (work) { this.Updates.ElementAt(updateNumber).Work.AddSec(); return; }
+            this.Updates.ElementAt(updateNumber).Train.AddSec();
         }
     }
 }

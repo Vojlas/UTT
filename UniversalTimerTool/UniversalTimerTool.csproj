@@ -120,6 +120,7 @@
     <Compile Include="Model\LicenseResponseModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\LoginResponseModel.cs" />
+    <Compile Include="Model\Time.cs" />
     <Compile Include="Model\ToDo.cs" />
     <Compile Include="ReTimeSpan.cs" />
     <Compile Include="ProjectsView.xaml.cs">
