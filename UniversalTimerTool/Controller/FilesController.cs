@@ -82,7 +82,7 @@ namespace UniversalTimerTool.FilesController
                 DataColumn dc2 = new DataColumn("TrainTime"); dt.Columns.Add(dc2);
                 DataColumn dc3 = new DataColumn("LastPricePerHour"); dt.Columns.Add(dc3);
                 DataColumn dc4 = new DataColumn("UpdateName"); dt.Columns.Add(dc4);
-                dt.Rows.Add(update.WorkTime.Second, update.TrainTime.Second, update.LastPricePerHour, update.UpdateName);
+                dt.Rows.Add(update.Work, update.Train, update.LastPricePerHour, update.UpdateName);
 
                 dataTables.Add(dt);
                 counter++;
@@ -146,11 +146,8 @@ namespace UniversalTimerTool.FilesController
                 if (dataTable.TableName != "ProjectMain")
                 {
                     DataRow row = dataTable.Rows[0];
-                    Console.WriteLine(Convert.ToInt32(row["WorkTime"]));
-                    Console.WriteLine(Convert.ToInt32(row["TrainTime"]));
-                    DateTime wTime = new DateTime(0); wTime = wTime.AddSeconds(Convert.ToInt32(row["WorkTime"]));
-                    DateTime tTime = new DateTime(0); tTime = tTime.AddSeconds(Convert.ToInt32(row["TrainTime"]));
-
+                    Time wTime = new Time((string)row["WorkTime"]);
+                    Time tTime = new Time((string)row["TrainTime"]);
                     updates.Add(new Update(wTime,tTime, Convert.ToInt32(row["LastPricePerHour"]), Convert.ToString(row["UpdateName"])));
                 }
             }

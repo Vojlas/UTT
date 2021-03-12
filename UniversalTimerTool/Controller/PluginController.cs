@@ -29,6 +29,7 @@ namespace UniversalTimerTool.Controller
 		}
 		public void FindPlugins(string Path)
 		{
+			Directory.CreateDirectory(Path);
 			//First empty the collection, we're reloading them all
 			colAvailablePlugins.Clear();
 

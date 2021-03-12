@@ -20,7 +20,8 @@ namespace UniversalTimerTool.DataController
                 if (dataTable.TableName != "ProjectMain")
                 {
                     DataRow row = dataTable.Rows[0];
-                    updates.Add(new Update(new DateTime(Convert.ToInt32(row["WorkTime"])), new DateTime(Convert.ToInt32(row["TrainTime"])), Convert.ToInt32(row["LastPricePerHour"]),row["UpdateName"].ToString()));
+                    //Try Catch!!!
+                    updates.Add(new Update(new Time((string)row["WorkTime"]), new Time((string)row["TrainTime"]), Convert.ToInt32(row["LastPricePerHour"]),row["UpdateName"].ToString()));
                 }
             }
             foreach (DataTable dataTable in dataSet.Tables)

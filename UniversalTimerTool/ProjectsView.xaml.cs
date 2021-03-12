@@ -27,8 +27,7 @@ namespace UniversalTimerTool
             InitializeComponent();
 
             textBoxProjectName.Text = project.ProjektName;
-            textBoxProjectTime.Text = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.TotalProjectTime().Days,
+            textBoxProjectTime.Text = String.Format("Hours: {0}, Minutes: {1}, Seconds: {2}",
                 project.TotalProjectTime().Hours,
                 project.TotalProjectTime().Minutes,
                 project.TotalProjectTime().Seconds);
@@ -39,14 +38,13 @@ namespace UniversalTimerTool
             dataGridUpdates.ItemsSource = project.Updates;
 
             textBoxUpdateName.Text = project.Updates.ElementAt(UpdateNumber).UpdateName;
-            textBoxUpdateTime.Text = String.Format("Days: {0}, Hours: {1}, Minutes: {2}, Seconds: {3}",
-                project.TotalUpdateTime(UpdateNumber).Days,
+            textBoxUpdateTime.Text = String.Format("Hours: {0}, Minutes: {1}, Seconds: {2}",
                 project.TotalUpdateTime(UpdateNumber).Hours,
                 project.TotalUpdateTime(UpdateNumber).Minutes,
                 project.TotalUpdateTime(UpdateNumber).Seconds);
             textBoxUpdateDescription.Text = project.Updates.ElementAt(UpdateNumber).UpdateDescription;
-            textBoxUpdateTrainTime.Text = String.Format("{0:T}", project.Updates.ElementAt(UpdateNumber).TrainTime);
-            textBoxUpdateWorkTime.Text = String.Format("{0:T}", project.Updates.ElementAt(UpdateNumber).WorkTime);
+            textBoxUpdateTrainTime.Text = project.Updates.ElementAt(UpdateNumber).Train.Show();
+            textBoxUpdateWorkTime.Text = project.Updates.ElementAt(UpdateNumber).Work.Show();
         }
     }
 }

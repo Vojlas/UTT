@@ -45,8 +45,8 @@ namespace UniversalTimerTool
             SetupComponents();
 
             //TRY CATCH -> INTERNET
-            LoginView loginView = new LoginView();
-            loginView.ShowDialog();
+            //LoginView loginView = new LoginView();
+            //loginView.ShowDialog();
             LicenseController lc = new LicenseController();
             //LoginResponseModel login = lc.login(loginView.Email, loginView.Password, true);
             //if (!lc.checkLicense(loginView.Email, login.token))

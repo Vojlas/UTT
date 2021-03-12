@@ -66,7 +66,7 @@ namespace UniversalTimerTool
             {
 
                 List<Update> updates = new List<Update>();
-                Update update = new Update(new DateTime(0), new DateTime(0), 0, textBoxUpdateName.Text);
+                Update update = new Update(new Time(),new Time(),0 , textBoxUpdateName.Text);
                 updates.Add(update);
 
                 Project project = new Project(textBoxProjectName.Text, new DateTime(datePickerCreated.SelectedDate.Value.Ticks), updates, textBoxDescription.Text);
@@ -196,7 +196,7 @@ namespace UniversalTimerTool
         private void buttonNewUpdate_SaveNewUpdate_Click(object sender, RoutedEventArgs e)
         {
             try {
-                Update u = new Update(new DateTime(0), new DateTime(0), Convert.ToInt32(textBoxNewUpdate_UpdatePrice.Text), textBoxNewUpdate_UpdateName.Text, textBoxNewUpdate_UpdateDescripton.Text);
+                Update u = new Update(new Time(), new Time(), Convert.ToInt32(textBoxNewUpdate_UpdatePrice.Text), textBoxNewUpdate_UpdateName.Text,null ,textBoxNewUpdate_UpdateDescripton.Text);
                 this.projects.ElementAt(this.ProjectNumber).Updates.Add(u);
             } catch {}
             MessageBox.Show("Update created");

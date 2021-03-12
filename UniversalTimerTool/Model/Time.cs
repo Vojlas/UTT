@@ -5,12 +5,22 @@
         public double Hours { get; set; }
         public byte Minutes { get; set; }
         public byte Seconds { get; set; }
-        public Time() { }
+        public Time() {
+            this.Hours = 0;
+            this.Minutes = 0;
+            this.Seconds = 0;
+        }
         public Time(double _hours, byte _minutes, byte _seconds)
         {
             this.Hours = _hours;
             this.Minutes = _minutes;
             this.Seconds = _seconds;
+        }
+        public Time(string savedTime)
+        {
+            this.Hours = 0;
+            this.Minutes = 0;
+            this.Seconds = 0;
         }
         public Time AddSec()
         {
@@ -30,6 +40,10 @@
             if (this.Seconds > 60) { this.Seconds += (byte)(this.Seconds % 60); this.Minutes++; }
             if (this.Minutes > 60) { this.Minutes += (byte)(this.Minutes % 60); this.Hours++; }
             return this;
+        }
+        public string Show()
+        {
+            return this.Hours + ":" + this.Minutes + ":" + this.Seconds;
         }
     }
 }
