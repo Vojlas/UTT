@@ -26,7 +26,7 @@
         {
             if ((this.Seconds += 1) < 60) return this;
             if ((this.Minutes += 1) < 60) { this.Seconds = 0; return this; }
-            this.Hours++; this.Minutes = 0; return this;
+            this.Hours++; this.Minutes = 0; this.Seconds = 0; return this;
         }
         public Time Add(Time time)
         {
@@ -37,8 +37,8 @@
 
             //Redistribute Hours, minutes, seconds according to time rules
             //max addition is 60+59 = 119 -> so add {0,1}
-            if (this.Seconds > 60) { this.Seconds += (byte)(this.Seconds % 60); this.Minutes++; }
-            if (this.Minutes > 60) { this.Minutes += (byte)(this.Minutes % 60); this.Hours++; }
+            if (this.Seconds >= 60) { this.Seconds = (byte)(this.Seconds % 60); this.Minutes++; }
+            if (this.Minutes >= 60) { this.Minutes = (byte)(this.Minutes % 60); this.Hours++; }
             return this;
         }
         public string Show()
