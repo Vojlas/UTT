@@ -20,7 +20,7 @@ namespace UniversalTimerTool.FilesController
         /// <param name="path"></param>
         public FilesController()
         {
-            this.path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+"//UTT-TimerTool//Projects";
+            this.path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+ "\\UTT-TimerTool\\Projects\\";
 
             if (!Directory.Exists(path))
             {
@@ -78,11 +78,11 @@ namespace UniversalTimerTool.FilesController
             foreach (Update update in updates)
             {
                 DataTable dt = new DataTable { TableName = "Update"+counter };
-                DataColumn dc1 = new DataColumn("WorkTime"); dt.Columns.Add(dc1);
-                DataColumn dc2 = new DataColumn("TrainTime"); dt.Columns.Add(dc2);
+                DataColumn dc1 = new DataColumn("Work"); dt.Columns.Add(dc1);
+                DataColumn dc2 = new DataColumn("Train"); dt.Columns.Add(dc2);
                 DataColumn dc3 = new DataColumn("LastPricePerHour"); dt.Columns.Add(dc3);
                 DataColumn dc4 = new DataColumn("UpdateName"); dt.Columns.Add(dc4);
-                dt.Rows.Add(update.Work, update.Train, update.LastPricePerHour, update.UpdateName);
+                dt.Rows.Add(update.Work.Show(), update.Train.Show(), update.LastPricePerHour, update.UpdateName);
 
                 dataTables.Add(dt);
                 counter++;
@@ -146,8 +146,8 @@ namespace UniversalTimerTool.FilesController
                 if (dataTable.TableName != "ProjectMain")
                 {
                     DataRow row = dataTable.Rows[0];
-                    Time wTime = new Time((string)row["WorkTime"]);
-                    Time tTime = new Time((string)row["TrainTime"]);
+                    Time wTime = new Time((string)row["Work"]);
+                    Time tTime = new Time((string)row["Train"]);
                     updates.Add(new Update(wTime,tTime, Convert.ToInt32(row["LastPricePerHour"]), Convert.ToString(row["UpdateName"])));
                 }
             }

@@ -1,4 +1,7 @@
-﻿namespace UniversalTimerTool.Model
+﻿using System;
+using System.Text.RegularExpressions;
+
+namespace UniversalTimerTool.Model
 {
     public class Time
     {
@@ -16,11 +19,22 @@
             this.Minutes = _minutes;
             this.Seconds = _seconds;
         }
-        public Time(string savedTime)
+        public Time(string time)
         {
-            this.Hours = 0;
-            this.Minutes = 0;
-            this.Seconds = 0;
+            Regex regex = new Regex(@"^\d+:\d+:\d+$");
+            if (!regex.IsMatch(time)) throw new FormatException("Wrong time format!");
+            //Time parts -> hh:mm:ss -> timeParts[0] -> hours; timeParts[1] -> minutes; timeParts[2] -> seconds
+            string[] timeParts = time.Split(':');
+            try
+            {
+                this.Hours = Convert.ToDouble(timeParts[0]);
+                this.Minutes = Convert.ToByte(timeParts[1]);
+                this.Seconds = Convert.ToByte(timeParts[2]);
+            }
+            catch (Exception)
+            {
+                throw new FormatException("Not number in time format!");
+            }
         }
         public Time AddSec()
         {

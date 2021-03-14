@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UniversalTimerTool.exe" size="320000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="UniversalTimerTool.exe" size="320512">
       <assemblyIdentity name="UniversalTimerTool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xgL7AWBe4PTPiIkczgl4sjygjHbmLjGYy11xG5VwUlg=</dsig:DigestValue>
+        <dsig:DigestValue>JsoDnfIRsWFp4hwMp5CSY+E7pD1Uatz3G/3beETG/4U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

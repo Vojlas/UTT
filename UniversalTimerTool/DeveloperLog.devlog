@@ -4,7 +4,9 @@ BUG: No project selected when importing project
 BUG: No internet exception
 BUG: Wrong credentials exception
 BUG: No licence exception -> "buy" licence  ---> TODO: No licence -> link - Manage account
-BUG: After rework -> Saving and loading wrong save format
+FIXED: After rework -> Saving and loading wrong save format
+BUG: Switching between projects,
+
 
 ---- Errors || Warnings::
 ERROR: ERROR while project longer then month in money manager!

@@ -68,8 +68,8 @@ namespace UniversalTimerTool
                 List<Update> updates = new List<Update>();
                 Update update = new Update(new Time(),new Time(),0 , textBoxUpdateName.Text);
                 updates.Add(update);
-
-                Project project = new Project(textBoxProjectName.Text, new DateTime(datePickerCreated.SelectedDate.Value.Ticks), updates, textBoxDescription.Text);
+                
+                Project project = new Project(textBoxProjectName.Text, datePickerCreated.SelectedDate.Value, updates, textBoxDescription.Text);
 
                 FilesController.FilesController filesController = new FilesController.FilesController();
                 filesController.WriteProjecToProjectFolder(project); //TODO: Add logging system!
