@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UniversalTimerTool"
         mc:Ignorable="d"
         Title="回 - UTT - Universal Timer Tool" Height="336" Width="616.4">
-
+    <!-- Title="回 - UTT - Universal Timer Tool" Height="336" Width="616.4"> -->
     <TabControl x:Name="tabControlMain">
         <TabItem x:Name="tabHome"
                  Header="Home"

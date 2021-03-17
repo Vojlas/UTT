@@ -55,6 +55,7 @@ namespace UniversalTimerTool.FilesController
             DataColumn dc2 = new DataColumn("Created"); dt.Columns.Add(dc2);
             DataColumn dc3 = new DataColumn("FileName"); dt.Columns.Add(dc3);
             DataColumn dc4 = new DataColumn("Description"); dt.Columns.Add(dc4);
+            
             dt.Rows.Add(project.ProjektName, project.Created, project.FileName, project.Description);
             try
             {
@@ -73,6 +74,7 @@ namespace UniversalTimerTool.FilesController
         /// <param name="updates"></param>
         private void addTables(DataSet dataSet, List<Update> updates)
         {
+            updates.ElementAt(0).ToDoList = new ToDoList("MilujuTe:True|Hay:False|drink:True");
             List<DataTable> dataTables = new List<DataTable>();
             int counter = 0;
             foreach (Update update in updates)
@@ -82,7 +84,8 @@ namespace UniversalTimerTool.FilesController
                 DataColumn dc2 = new DataColumn("Train"); dt.Columns.Add(dc2);
                 DataColumn dc3 = new DataColumn("LastPricePerHour"); dt.Columns.Add(dc3);
                 DataColumn dc4 = new DataColumn("UpdateName"); dt.Columns.Add(dc4);
-                dt.Rows.Add(update.Work.Show(), update.Train.Show(), update.LastPricePerHour, update.UpdateName);
+                DataColumn dc5 = new DataColumn("ToDo"); dt.Columns.Add(dc5);
+                dt.Rows.Add(update.Work.Show(), update.Train.Show(), update.LastPricePerHour, update.UpdateName, update.ToDoList.ToString());
 
                 dataTables.Add(dt);
                 counter++;

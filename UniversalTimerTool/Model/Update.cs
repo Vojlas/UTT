@@ -9,9 +9,9 @@ namespace UniversalTimerTool.Model
         public int LastPricePerHour { get; set; }
         public string UpdateName { get; set; }
         public string UpdateDescription { get; set; }
-        public List<ToDo> ToDoList { get; set; }
+        public ToDoList ToDoList { get; set; }
 
-        public Update(Time _workTime, Time _trainTime, int _lastPricePerHour, string _updateName, List<ToDo> _ToDOList = null, string _updateDescription = "")
+        public Update(Time _workTime, Time _trainTime, int _lastPricePerHour, string _updateName, ToDoList _ToDOList = null, string _updateDescription = "")
         {
             this.Work = _workTime;
             this.Train = _trainTime;

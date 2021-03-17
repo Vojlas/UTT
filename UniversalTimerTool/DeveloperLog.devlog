@@ -25,9 +25,11 @@ WEB:
 
 ---- ToDo:
 TODO: Add About button
+TODO: Regex in TODO.cs
 TODO: move login logic into loginView.xaml.cs
 IMPORTANT TODO: SESSION MONEY MANGMENT --> SESSION LOG -> DAILY
 IDEA: Re-make files controler -> Add encryption, change files extension 
+
 
 ---- Fixed:
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 
