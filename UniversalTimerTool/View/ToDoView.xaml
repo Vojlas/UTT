@@ -4,10 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversalTimerTool.View"
-        xmlns:local="clr-namespace:UniversalTimerTool."
+        xmlns:CustomControlls="clr-namespace:UniversalTimerTool.View.UserControlls"
         mc:Ignorable="d"
-        Title="ToDoView" Height="250" Width="200">
-    <Grid>
-        <ToDo />
-    </Grid>
+        Title="ToDoView" Height="336" Width="200" ResizeMode="NoResize">
+    <ScrollViewer Padding="5px">
+        <StackPanel x:Name="StackPanelToDo">
+            <CustomControlls:ToDoControll PlaceHolder="Check size mess"/>
+            <CustomControlls:ToDoControll Status="True"/>
+            <CustomControlls:ToDoControll Status="False"/>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

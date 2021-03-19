@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using UniversalTimerTool.Model;
+using UniversalTimerTool.View.UserControlls;
 
 namespace UniversalTimerTool.View
 {
@@ -19,9 +9,33 @@ namespace UniversalTimerTool.View
     /// </summary>
     public partial class ToDoView : Window
     {
-        public ToDoView()
+        public ToDoList ToDoList { get;set;}
+        public ToDoView(ToDoList toDoList)
         {
             InitializeComponent();
+            this.ToDoList = toDoList;
+            if (this.ToDoList == null) { this.ToDoList = new ToDoList("name:true"); }
+            Rerender();
+        }
+
+        public void Rerender() {
+            this.StackPanelToDo.Children.Clear();
+
+            foreach (ToDo task in this.ToDoList.List.Values)
+            {
+                ToDoControll control = new ToDoControll();
+                    control.PlaceHolder = task.Name;
+                    control.Status = task.Done;
+                this.StackPanelToDo.Children.Add(control);
+                control = null;
+            }
+        }
+
+        public void Rerender(ToDoList toDoList)
+        {
+            this.ToDoList = toDoList;
+            if (this.ToDoList == null) { this.ToDoList = new ToDoList("name:true"); }
+            Rerender();
         }
     }
 }

@@ -196,8 +196,11 @@ namespace UniversalTimerTool
 
         private void buttonMain_ShowToDoList_Click(object sender, RoutedEventArgs e)
         {
-            ToDoView view = new ToDoView();
-            view.Show();
+            if (projects.Count !=0)
+            {
+                ToDoView view = new ToDoView(this.projects.ElementAt(ProjectNumber).Updates.ElementAt(UpdateNumber).ToDoList);
+                view.Show(); 
+            }
         }
     }
 }

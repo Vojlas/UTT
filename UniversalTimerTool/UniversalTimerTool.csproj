@@ -122,9 +122,7 @@
     <Compile Include="Model\LoginResponseModel.cs" />
     <Compile Include="Model\Time.cs" />
     <Compile Include="Model\ToDo.cs" />
-    <Compile Include="View\UserControlls\ToDoControll.xaml.cs">
-      <DependentUpon>ToDoControll.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Model\ToDoList.cs" />
     <Compile Include="ReTimeSpan.cs" />
     <Compile Include="View\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
@@ -135,6 +133,9 @@
     </Compile>
     <Compile Include="View\ToDoView.xaml.cs">
       <DependentUpon>ToDoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControlls\ToDoControll.xaml.cs">
+      <DependentUpon>ToDoControll.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -154,15 +155,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserControlls\ToDoControll.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ToDoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControlls\ToDoControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

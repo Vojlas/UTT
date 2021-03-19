@@ -13,13 +13,35 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UniversalTimerTool.Resources
+namespace UniversalTimerTool.View.UserControlls
 {
     /// <summary>
     /// Interakční logika pro ToDoControll.xaml
     /// </summary>
     public partial class ToDoControll : UserControl
     {
+        public string PlaceHolder 
+        { 
+            get 
+            {
+                return this.TextBlockName.Text;
+            }
+            set 
+            {
+                this.TextBlockName.Text = value;
+            }
+        }
+
+        public bool Status {
+            get 
+            {
+                return this.CheckBoxStatus.IsChecked == null || false ? false : true;
+            }
+            set
+            {
+                this.CheckBoxStatus.IsChecked = value;
+            }
+        }
         public ToDoControll()
         {
             InitializeComponent();

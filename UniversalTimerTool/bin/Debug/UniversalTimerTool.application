@@ -7,14 +7,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="UniversalTimerTool.exe.manifest" size="6521">
+    <dependentAssembly dependencyType="install" codebase="UniversalTimerTool.exe.manifest" size="6541">
       <assemblyIdentity name="UniversalTimerTool.exe" version="1.2.0.10" publicKeyToken="0000000000000000" language="cs-CZ" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0vkNA+VZs8M4e4XWhq2MOCQpb8enVVbEy4SQr5QPFvQ=</dsig:DigestValue>
+        <dsig:DigestValue>/Rglm6L5e8t8uCQ6NdZ5Ynt97FKcu0UtSQi5RDJyhz8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
