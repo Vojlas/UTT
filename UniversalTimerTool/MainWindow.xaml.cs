@@ -194,5 +194,10 @@ namespace UniversalTimerTool
             }
         }
 
+        private void buttonMain_ShowToDoList_Click(object sender, RoutedEventArgs e)
+        {
+            ToDoView view = new ToDoView();
+            view.Show();
+        }
     }
 }

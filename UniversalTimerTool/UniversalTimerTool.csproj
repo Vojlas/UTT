@@ -55,7 +55,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iconfinder_gear-stopwatch-time-speed_532768.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\iconfinder_gear-stopwatch-time-speed_532768.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>3E504B0D6B5C2E68A7E1BF075EAC9A7FD257AC1B</ManifestCertificateThumbprint>
@@ -122,13 +122,19 @@
     <Compile Include="Model\LoginResponseModel.cs" />
     <Compile Include="Model\Time.cs" />
     <Compile Include="Model\ToDo.cs" />
+    <Compile Include="View\UserControlls\ToDoControll.xaml.cs">
+      <DependentUpon>ToDoControll.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ReTimeSpan.cs" />
-    <Compile Include="ProjectsView.xaml.cs">
+    <Compile Include="View\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HomeView.cs" />
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ToDoView.xaml.cs">
+      <DependentUpon>ToDoView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -144,11 +150,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ProjectsView.xaml">
+    <Page Include="View\ProjectsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControlls\ToDoControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ToDoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,7 +200,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="iconfinder_gear-stopwatch-time-speed_532768.ico" />
+    <Resource Include="Resources\iconfinder_gear-stopwatch-time-speed_532768.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
