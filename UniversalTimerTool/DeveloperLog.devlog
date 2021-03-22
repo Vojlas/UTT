@@ -1,15 +1,10 @@
 ﻿---- Bugs: 
-BUG: some kind of exception when new projects is created and then switched to that project????
-BUG: No project selected when importing project
 BUG: No internet exception
 BUG: Wrong credentials exception
 BUG: No licence exception -> "buy" licence  ---> TODO: No licence -> link - Manage account
-FIXED: After rework -> Saving and loading wrong save format
-BUG: Switching between projects,
-
 
 ---- Errors || Warnings::
-ERROR: ERROR while project longer then month in money manager!
+WARNING: After creating new project swtich to homepage
 WARNING: New update text box multiline 
 WARNING: New project text box multiline
 WARNING: ReRender homepage when new update created
@@ -17,7 +12,7 @@ WARNING: ReRender homepage when new update created
 ---- REQ:
 APP:
 [ x ] - Money Manager
-[  ] - ToDo List for updates
+[ x ] - ToDo List for updates
 
 WEB:
 [   ] - SQL server save - probably only for WebSide
@@ -32,6 +27,11 @@ IDEA: Re-make files controler -> Add encryption, change files extension
 
 
 ---- Fixed:
+FIXED: Switching between projects
+FIXED: ERROR while project longer then month in money manager! --> changed from DateTime to custom Time.cs
+FIXED: some kind of exception when new projects is created and then switched to that project????
+FIXED: No project selected when importing project
+FIXED: After rework -> Saving and loading wrong save format
 FIXED -- Potencial Bug or Runtime error -> ButtonsCotroller -> previousUpdate.click -> OutOfRange exception? 
 FIXED -- TabProject -> Create new projet -> CheckBoxx Today & checkBox Default - same trigger
 FIXED -- Buttons Controler buttonUpdateSettings_NextUpdate_Click -> Aout of range exception			- FIX: Disable button when no project loaded!

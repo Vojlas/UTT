@@ -34,7 +34,6 @@ namespace UniversalTimerTool
         private System.Windows.Threading.DispatcherTimer dispatcherTimerProject = new System.Windows.Threading.DispatcherTimer();
         private System.Windows.Threading.DispatcherTimer dispatcherTimerAutosave = new System.Windows.Threading.DispatcherTimer();
         private PluginController pc { get; set; }
-
         List<Project> projects = new List<Project>();
         public int ProjectNumber { get; private set; }
         public int UpdateNumber { get; private set; }
@@ -77,10 +76,7 @@ namespace UniversalTimerTool
             {
                 hm.ReRenderHomePage(this.projects.ElementAt(this.ProjectNumber), this.UpdateNumber, this.ProjectNumber, this.projects.Count);
             }
-            catch (Exception)
-            {
-            }
-            
+            catch (Exception){}            
 
             if (this.projects.Count == 0) { ManageMainButtons(false); }
             else { ManageMainButtons(true); }
@@ -120,12 +116,8 @@ namespace UniversalTimerTool
         }
 
         //------------------------------------------------------------------------------
-        //Project tab
-
-       
-
-      
-
+        //Project tab   
+             
         private void checkboxToday_Changed(object sender, RoutedEventArgs e)
         {
             if ((sender as CheckBox).IsChecked.ToString() == "True")

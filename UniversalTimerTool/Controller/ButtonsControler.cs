@@ -88,6 +88,7 @@ namespace UniversalTimerTool
                 textBoxProjectName.Clear();
                 datePickerCreated.SelectedDate = DateTime.Today;
                 textBoxDescription.Clear();
+                tabControlMain.SelectedIndex = 0;
             }
             else
             {

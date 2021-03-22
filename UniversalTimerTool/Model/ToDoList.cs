@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UniversalTimerTool.Model
-{
+{    
     public class ToDoList
-    { //ToDo List format name:bool|name:bool|...
+    { 
         public Dictionary<string, ToDo> List { get; set; }
         public ToDoList() { this.List = new Dictionary<string, ToDo>(); }
         public ToDoList(string savedList)

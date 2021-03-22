@@ -40,10 +40,10 @@
 
                         <Label x:Name="labelProjectOutOfNumber" Grid.Column="4" Grid.RowSpan="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="0" Content="0/0" FontSize="15"/>
 
-                        <Button x:Name="buttonMain_PreviousProject" FontFamily="Marlett" FontSize="20" Content="5" Grid.Row="0" Grid.Column="5" Margin="5 2"/>
-                        <Button x:Name="buttonMain_NextProject" FontFamily="Marlett" FontSize="20" Content="6" Grid.Row="1" Grid.Column="5" Margin="5 2"/>
+                        <Button x:Name="buttonMain_PreviousProject" FontFamily="Marlett" FontSize="20" Content="5" Grid.Row="0" Grid.Column="5" Margin="5 2" Click="buttonMain_NextProject_Click"/>
+                        <Button x:Name="buttonMain_NextProject" FontFamily="Marlett" FontSize="20" Content="6" Grid.Row="1" Grid.Column="5" Margin="5 2" Click="buttonMain_PreviousProject_Click"/>
 
-                        <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5"></Label>
+                        <Label x:Name="labelProjectTime" Content="00:00:00" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4"></Label>
                         <Label x:Name="_labelProjectName" Content="Total project time:" Grid.Column="0" Grid.Row="1"></Label>
                     </Grid>
                 </GroupBox>
