@@ -5,94 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UniversalTimerTool.View"
         mc:Ignorable="d"
-        Title="Universal Timer Tool - Login" Height="360" Width="300" Closing="Window_Closing" ResizeMode="NoResize">
-    <!--
-    <Window.Resources>
-        <Style TargetType="PasswordBox" x:Key="roundcornerpassword">
-            <Setter Property="PasswordChar" Value="●"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="PasswordBox">
-                        <Border CornerRadius="8" x:Name="Bd" Background="White" BorderBrush="Gray" BorderThickness="1" OpacityMask="{x:Null}">
-                            <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost" Template="{DynamicResource ScrollViewerControlTemplate1}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>  
-  
+        Title="Universal Timer Tool - Login" Height="250" Width="350" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="2.1*" />
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*" />
-            <ColumnDefinition Width="0.9*" />
-        </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1" Content="User login" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" FontSize="18"/>
-
-        <TextBox x:Name="txbEmail" Grid.Row="1"  Grid.Column="1" Margin="15 8" VerticalContentAlignment="Center" Padding="10 0 0 0" GotFocus="txbEmail_GotFocus" LostFocus="txbEmail_LostFocus">
-            <TextBox.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8" />
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-
-        <PasswordBox x:Name="txbPass" Style="{StaticResource roundcornerpassword}" Grid.Row="2"  Grid.Column="1" Margin="15 8" VerticalContentAlignment="Center" Padding="10 0 0 0" GotFocus="txbPass_GotFocus" LostFocus="txbPass_LostFocus" PreviewKeyDown="txbPass_PreviewKeyDown"/>
-
-        <Button x:Name="btnLogin" Grid.Row="3" Grid.Column="1" Margin="15 8" Content="Login" Click="btnLogin_Click">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="8" />
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Grid Grid.Row="4" Grid.Column="1" Margin="5 0 5 0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button x:Name="btnRegister" Margin="10 5" Click="btnRegister_Click">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="8" />
-                    </Style>
-                </Button.Resources>
-                <TextBlock Text="Don't have an account? Sign up"  TextWrapping="WrapWithOverflow" FontSize="9" VerticalAlignment="Center" TextAlignment="Center"/>
-            </Button>
-
-            <Button Grid.Column="1" x:Name="btnResetPass" Margin="10 5" Click="btnResetPass_Click">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="8" />
-                    </Style>
-                </Button.Resources>
-                <TextBlock Text="Forgot password?"  TextWrapping="WrapWithOverflow" FontSize="9" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
-            </Button>
-        </Grid>
-    </Grid>-->
-
-
-    <WebBrowser x:Name="LoGinBrowser" />
+        <Label FontSize="17" HorizontalAlignment="Center" Grid.Row="1" Height="auto" VerticalAlignment="Center">Insert login token</Label>
+        <TextBox x:Name="TokenInput" Width="200" Height="20" Grid.Row="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+        <Button x:Name="btnLogin" Width="110" Grid.Row="3" Margin="0 3" Content="Login" Click="btnLogin_Click"/>
+    </Grid>
 </Window>

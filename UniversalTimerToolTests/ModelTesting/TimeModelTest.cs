@@ -23,9 +23,6 @@ namespace UniversalTimerToolTests.ModelTesting
             {
                 pair.Key.AddSec();
 
-                //Help for debugging ;)
-                //System.Threading.Thread.Sleep(100);
-
                 Assert.AreEqual(pair.Key.Hours, pair.Value.Hours);
                 Assert.AreEqual(pair.Key.Minutes, pair.Value.Minutes);
                 Assert.AreEqual(pair.Key.Seconds, pair.Value.Seconds);

@@ -15,8 +15,8 @@ APP:
 [ x ] - ToDo List for updates
 
 WEB:
-[   ] - SQL server save - probably only for WebSide
-[   ] - License Mangment - WebSide
+[ x ] - SQL server save - probably only for WebSide
+[ X ] - License Mangment - WebSide
 
 ---- ToDo:
 TODO: Add About button

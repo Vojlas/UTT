@@ -123,7 +123,11 @@
     <Compile Include="Model\Time.cs" />
     <Compile Include="Model\ToDo.cs" />
     <Compile Include="Model\ToDoList.cs" />
+    <Compile Include="Model\Token.cs" />
     <Compile Include="ReTimeSpan.cs" />
+    <Compile Include="View\newToDo.xaml.cs">
+      <DependentUpon>newToDo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
@@ -151,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\newToDo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ProjectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

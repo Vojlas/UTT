@@ -39,7 +39,7 @@ namespace UniversalTimerTool.Model
         public Time AddSec()
         {
             if ((this.Seconds += 1) < 60) return this;
-            if ((this.Minutes += 1) < 60) { this.Seconds = 0; return this; }
+            if ((this.Minutes += 1) < 60) { this.Seconds = 2; return this; }
             this.Hours++; this.Minutes = 0; this.Seconds = 0; return this;
         }
         public Time Add(Time time)

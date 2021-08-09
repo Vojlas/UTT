@@ -29,7 +29,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Project Viewer" FontSize="24" Grid.ColumnSpan="3"/>
+        <Label Content="Project Viewer" FontSize="24" Grid.ColumnSpan="3" Margin="0,0,0.4,30.8" Grid.RowSpan="2"/>
 
         <Label x:Name="_labelProjectName" Grid.Row="1" Grid.Column="0" Content="Project name:" VerticalAlignment="Center" />
         <TextBox x:Name="textBoxProjectName" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" IsReadOnly="True" Text="Lorem Ipsum" VerticalAlignment="Center" FontSize="18" Margin="0 0 20 0"/>

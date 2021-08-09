@@ -37,5 +37,16 @@ namespace UniversalTimerTool.View
             if (this.ToDoList == null) { this.ToDoList = new ToDoList("name:true"); }
             Rerender();
         }
+
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            newToDo newToDo = new newToDo();
+            newToDo.ShowDialog();
+            ToDo Todo = new ToDo();
+            Todo.Done = false;
+            Todo.Name = newToDo.name;
+            this.ToDoList.addTaskToList(Todo);
+            Rerender();
+        }
     }
 }

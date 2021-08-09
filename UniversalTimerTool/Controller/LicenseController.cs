@@ -14,112 +14,77 @@ using UniversalTimerTool.Model;
 using Newtonsoft.Json;
 using System.Windows.Markup;
 using System.Windows;
+using UniversalTimerTool.View;
+using System.Text.RegularExpressions;
 
 namespace UniversalTimerTool.CryptoController
 {
     class LicenseController
     {
-#if DEBUG
-        private string loginURL = "http://localhost/API/login?debug=true";
-        private string licenseCheckURL = "http://localhost/API/license/check?debug=true";
-#else
-        private string loginURL = "http://F4vopa.wz.cz/API/login";
-        private string licenseCheckURL = "http://F4vopa.wz.cz/API/license/check";
-        
-#endif
-        public LicenseController()
+        private string siteURL = "https://localhost/";
+
+        public void AuthetificateUser()
         {
-#if DEBUG
-            Console.WriteLine("LicenceController.cs \t DEBUG = TRUE");
-#endif
+            if (this.CheckForInternetConnection()) {
+                string tmp = getTmpToken();
+                Token token = new Token();
+                
+                if (!CheckLicense(tmp))
+                {
+                    Environment.Exit(0);
+                }
+                return;
+            }
+            MessageBox.Show("You must be connected to the Internet to proceed");
+            Environment.Exit(0);
         }
 
-        public LoginResponseModel login(string username, string pass, bool usingHash)
+        private bool CheckLicense(string tmpToken)
         {
-            LoginModel lm = new LoginModel(username, pass, usingHash);
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(this.loginURL);
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-           // try //Internet connection, Server down, wrong credentials
-           // {
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream())) //Error Cant connect to server && No internet
-                {
-                    string json = "{\"email\":\"" + lm.Username + "\"," +
-                                  "\"pass\":\"" + lm.Pass + "\"}";
-
-                    streamWriter.Write(json);
-                }
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
-
-            try //Error Http - 401
+            string htmlCode = "";
+            using (WebClient client = new WebClient())
             {
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var tmp = streamReader.ReadToEnd();
-                    LoginResponseModel response = JsonConvert.DeserializeObject<LoginResponseModel>(tmp);
-                    if (response.status == "200")
-                    {
-                        return response;
-                    }
-                }
+                htmlCode = client.DownloadString(siteURL + "API/CheckLicence/" + tmpToken);
             }
-            catch (WebException webEx)
-            {
-                if (webEx.Status == WebExceptionStatus.ProtocolError)
-                {
-                    var response = webEx.Response as HttpWebResponse;
-                    if ((int)response.StatusCode == 401) {
-                        MessageBox.Show("Wrong credentials!");
-                        return null;
-                    }
-                }
-            } 
-            
+            return htmlCode == "true" ? true : false;
+        }
+
+        private string getTmpToken()
+        {
+            string args = hideIP(getPublicIP()) + "x" + getHardDiskUUID();
+            string url = siteURL + "API/login/" + args;
+            System.Diagnostics.Process.Start(url);
+            LoginView loginConfirmation = new LoginView();
+            if (loginConfirmation.ShowDialog() == true) {
+                return loginConfirmation.tmpToken;
+            }
+            MessageBox.Show("Wrong token!");
+            Environment.Exit(0);
             return null;
         }
 
-        public bool checkLicense(string email, string token) {
-            string pc_uid = this.getHardDiskUUID();
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(this.licenseCheckURL);
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
+        private string hideIP(string ip) {
+            Regex regex = new Regex(@"^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$");
+            byte[] RandomDigits = { 2, 4, 0, 2, 4, 2, 0, 1, 4, 5, 5, 0, 8, 5, 9, 0 };
+            var chars = "ABCDEFGHIJKLNOPQRSTUVWXYZbcdeghijklmnopqrstuvwyz0123456789-";
+            string output = "";
 
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream())) //Error Cant connect to server && No internet
-            {
-                string json = "{\"email\":\"" + email + "\"," +
-                              "\"token\":\"" + token + "\","+
-                              "\"PC_UID\":\"" + pc_uid + "\"}";
-
-                streamWriter.Write(json);
+            if (regex.IsMatch(ip)) {
+                string[] partIp = ip.Split('.');
+                string stripIp = partIp[0] + 'M' + partIp[1] + 'f' + partIp[2] + 'a' + partIp[3];
+                
+                Random random = new Random();
+                for (int i = 0; i < stripIp.Length; i++)
+                {
+                    output += stripIp[i];
+                    for (int y = 0; y < RandomDigits[i]; y++)
+                    {
+                        output += chars[random.Next(0,chars.Length)];
+                    }
+                }
+                return output;
             }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse(); //Error Http - 401
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var tmp = streamReader.ReadToEnd();
-                LicenseResponseModel response = null;
-                try
-                {
-                    response = JsonConvert.DeserializeObject<LicenseResponseModel>(tmp);
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
-                if (response.LicenseTo > DateTime.Now)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            throw new FormatException("Wrong ip format");
         }
 
         private string getHardDiskUUID()
@@ -134,5 +99,23 @@ namespace UniversalTimerTool.CryptoController
             return hddID.Trim();
         }
 
+        public string getPublicIP()
+        {
+            return new WebClient().DownloadString("http://icanhazip.com").Trim();            
+        }
+
+        private bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                using (client.OpenRead("http://google.com/generate_204"))
+                    return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

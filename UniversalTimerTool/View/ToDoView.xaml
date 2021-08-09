@@ -7,11 +7,19 @@
         xmlns:CustomControlls="clr-namespace:UniversalTimerTool.View.UserControlls"
         mc:Ignorable="d"
         Title="ToDoView" Height="336" Width="200" ResizeMode="NoResize">
-    <ScrollViewer Padding="5px">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer Padding="5px">
         <StackPanel x:Name="StackPanelToDo">
             <CustomControlls:ToDoControll PlaceHolder="Check size mess"/>
             <CustomControlls:ToDoControll Status="True"/>
             <CustomControlls:ToDoControll Status="False"/>
         </StackPanel>
     </ScrollViewer>
+        <Button x:Name="btnNew" Content="New ToDo" Grid.Row="1" Click="btnNew_Click"/>
+    </Grid>
 </Window>

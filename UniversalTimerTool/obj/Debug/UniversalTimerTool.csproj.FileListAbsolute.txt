@@ -44,3 +44,5 @@ D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerT
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\View\ProjectsView.baml
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\View\UserControlls\ToDoControll.baml
 D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\View\newToDo.g.cs
+D:\00_Personal\Vojta\C#_Programs\ProjectTimer\UniversalTimerTool\UniversalTimerTool\obj\Debug\View\newToDo.baml
